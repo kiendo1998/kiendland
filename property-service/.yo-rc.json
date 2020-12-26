@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.kiendland.propertyservice"
+    },
+    "jhipsterVersion": "6.10.3",
+    "applicationType": "microservice",
+    "baseName": "propertyservice",
+    "packageName": "com.kiendland.propertyservice",
+    "packageFolder": "com/kiendland/propertyservice",
+    "serverPort": "8081",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YzJkMjc2ZmQzYThjYzk3MDczY2I1YTZiYWE4NTM4NjdhMTlmYTNiNzA0M2Q2ODM4NmI0MjBlZjZlMjljNjVmMzY4MDY0ZjkwYWIxMWY0OWIwMzI2ZTk0OGQ1ZGRkYmY4MTIwODk1MjFjNzY4YmE1MjQxYjY0ZjdkZTE4NDA4YWE=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1607524352041,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true,
+    "lastLiquibaseTimestamp": 1607532839000
+  }
+}

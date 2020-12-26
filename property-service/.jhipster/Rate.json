@@ -1,0 +1,24 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "propertyservice",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "ratePoint",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMin": "1",
+      "fieldValidateRulesMax": "5"
+    }
+  ],
+  "changelogDate": "20201209165047",
+  "dto": "no",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "rate",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "pagination",
+  "microserviceName": "propertyservice"
+}

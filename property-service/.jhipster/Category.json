@@ -1,0 +1,41 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "propertyservice",
+  "relationships": [
+    {
+      "relationshipName": "property",
+      "otherEntityName": "property",
+      "relationshipType": "many-to-many",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "category"
+    },
+    {
+      "relationshipName": "news",
+      "otherEntityName": "news",
+      "relationshipType": "many-to-many",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "category"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20201209165150",
+  "dto": "no",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "category",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "pagination",
+  "microserviceName": "propertyservice"
+}

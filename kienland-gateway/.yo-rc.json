@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.kienland.gateway",
+      "microservicePath": "C:\\Users\\137LTN\\Desktop\\KienLand\\property-service"
+    },
+    "jhipsterVersion": "6.10.3",
+    "applicationType": "gateway",
+    "baseName": "kienlandgateway",
+    "packageName": "com.kienland.gateway",
+    "packageFolder": "com/kienland/gateway",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ODgxZjY3ZjhiZDM4ZDlkYjE0ZTc3NzAzMmVlODA5NWYzODQwNTYwY2Y4YTVkNjEzNTI3MTgzYjJkNTg1MTUyZDY0MDM0MzUyMjNiZDNmNDViNWFkZWVhMjlhODlmYmQ5OWI4ZGE4OGFhZTFmN2NkNjljNzNjZWJjYTM2MTA4OTk=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "react",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1607528124044,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}

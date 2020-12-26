@@ -1,0 +1,50 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "propertyservice",
+  "relationships": [
+    {
+      "relationshipName": "tag",
+      "otherEntityName": "tag",
+      "relationshipType": "many-to-many",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "news"
+    },
+    {
+      "relationshipName": "category",
+      "otherEntityName": "category",
+      "relationshipType": "many-to-many",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "news"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMinlength": "20",
+      "fieldValidateRulesMaxlength": "10000"
+    },
+    {
+      "fieldName": "publishDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "changelogDate": "20201209164719",
+  "dto": "no",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "news",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "pagination",
+  "microserviceName": "propertyservice"
+}

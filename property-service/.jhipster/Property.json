@@ -1,0 +1,82 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "propertyservice",
+  "relationships": [
+    {
+      "relationshipName": "tag",
+      "otherEntityName": "tag",
+      "relationshipType": "many-to-many",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "property"
+    },
+    {
+      "relationshipName": "category",
+      "otherEntityName": "category",
+      "relationshipType": "many-to-many",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "property"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "featured",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "purpose",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "project",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "area",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "latitude",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "longitude",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20201209162559",
+  "dto": "no",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "property",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "pagination",
+  "microserviceName": "propertyservice"
+}
