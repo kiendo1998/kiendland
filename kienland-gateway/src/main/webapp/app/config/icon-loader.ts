@@ -28,7 +28,9 @@ import { faTimesCircle } from '@fortawesome/free-solid-svg-icons/faTimesCircle';
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 import { faRoad } from '@fortawesome/free-solid-svg-icons/faRoad';
 import { faCloud } from '@fortawesome/free-solid-svg-icons/faCloud';
+import {faAddressCard} from '@fortawesome/free-solid-svg-icons/faAddressCard'
 
+import { faHandSpock } from '@fortawesome/free-solid-svg-icons/faHandSpock';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 export const loadIcons = () => {
@@ -62,6 +64,8 @@ export const loadIcons = () => {
     faRoad,
     faCloud,
     faTimesCircle,
-    faSearch
+    faSearch,
+    faHandSpock,
+    faAddressCard
   );
 };

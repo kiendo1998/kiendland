@@ -1,0 +1,67 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="137LTN (generated)" id="1609039576437-1">
+        <createTable tableName="news_category">
+            <column name="news_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="category_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1609039576437-2">
+        <createTable tableName="news_tag">
+            <column name="news_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="tag_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1609039576437-3">
+        <createTable tableName="property_category">
+            <column name="property_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="category_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1609039576437-4">
+        <createTable tableName="property_tag">
+            <column name="property_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="tag_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1609039576437-5">
+        <addForeignKeyConstraint baseColumnNames="property_id" baseTableName="property_category" constraintName="FK64xhe389ool0enm5m3xmlpyva" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1609039576437-6">
+        <addForeignKeyConstraint baseColumnNames="news_id" baseTableName="news_tag" constraintName="FK6t4e6895p5bpxftb9cpa7d9rq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="news" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1609039576437-7">
+        <addForeignKeyConstraint baseColumnNames="tag_id" baseTableName="property_tag" constraintName="FK7fgmocdh3rjfs5xvj0kn5qvq4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tag" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1609039576437-8">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="property_category" constraintName="FK9lvov4g3rfc94iwbngsysyell" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="category" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1609039576437-9">
+        <addForeignKeyConstraint baseColumnNames="news_id" baseTableName="news_category" constraintName="FKb9a07uy7bnouoxefxynleowm9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="news" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1609039576437-10">
+        <addForeignKeyConstraint baseColumnNames="tag_id" baseTableName="news_tag" constraintName="FKc8mlwm67bxmmskec8wg4sd09g" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tag" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1609039576437-11">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="news_category" constraintName="FKe8kg0ga2881udnvtit2x1diqw" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="category" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1609039576437-12">
+        <addForeignKeyConstraint baseColumnNames="property_id" baseTableName="property_tag" constraintName="FKt9067dbwo7enxb061i9ye9pt6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
