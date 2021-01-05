@@ -4,55 +4,73 @@ import MenuItem from "app/shared/layout/menus/menu-item";
 
 function Footer() {
   return (
-    <div className="main-footer">
+    <footer className="page-footer indigo darken-2">
       <div className="container">
         <div className="row">
-          {/* Column1 */}
-          <div className="col">
-            <h2>Kienland - website bất động sản lớn nhất Việt Nam</h2>
-            <h4 className="list-unstyled">
-              <li>Cần Kiệm - Thạch Thất - Hà Nội</li>
-              <li>SĐT: 0986579099</li>
-              <li>Email: kienphule@gmail.com</li>
-            </h4>
+          <div className="col m4 s12">
+            <h5 className="white-text uppercase">Giới thiệu</h5>
+            <p className="grey-text text-lighten-4">Kienland là website mua bán bất động sản lớn nhất việt nam</p>
           </div>
-          {/* Column2 */}
-          <div className="col">
-            <h4>Bất động sản</h4>
-            <ul className="list-unstyled">
-              <li>Bán</li>
-              <li>Cho thuê</li>
-              <li>Dự án</li>
+          {/*bat dong san gan day*/}
+          <div className="col m6 s12">
+            <h5 className="white-text uppercase">Bất động sản gần đây</h5>
+            <ul className="collection border0">
             </ul>
           </div>
-          {/* Column3 */}
-          <div className="col">
-            <h4>Bất động sản gần đây</h4>
-            <ul className="list-unstyled">
-              <li>Bất động sản 1</li>
-              <li>Bất động sản 2</li>
-              <li>Bất động sản 3</li>
+          <div className="col m2 s12">
+            <h5 className="white-text uppercase">Menu</h5>
+            <ul>
+              <li className="uppercase {{ Request::is('batdongsan*') ? 'underline' : '' }}">
+                <a href="{{ route('batdongsan') }}" className="grey-text text-lighten-3">Trang chủ</a>
+              </li>
+
+              <li className="uppercase {{ Request::is('nhamoigioi*') ? 'underline' : '' }}">
+                <a href="{{ route('nhamoigioi') }}" className="grey-text text-lighten-3">Bất động sản</a>
+              </li>
+
+              <li className="uppercase {{ Request::is('bosuutap*') ? 'underline' : '' }}">
+                <a href="{{ route('bosuutap') }}" className="grey-text text-lighten-3">Tin tức</a>
+              </li>
+
+              <li className="uppercase {{ Request::is('tintuc*') ? 'underline' : '' }}">
+                <a href="{{ route('tintuc') }}" className="grey-text text-lighten-3">Liên hệ</a>
+              </li>
+
+              <li className="uppercase {{ Request::is('lienhe') ? 'underline' : '' }}">
+                <a href="{{ route('lienhe') }}" className="grey-text text-lighten-3">Tài khoản</a>
+              </li>
             </ul>
           </div>
-          {/* Column3 */}
-          <div className="col">
-            <h4>Mạng xã hội</h4>
-            <ul className="list-unstyled">
-              <li>Facebook</li>
-              <li>Youtube</li>
-              <li>Zalo</li>
+          <div className="col m2 s12">
+            <h5 className="white-text uppercase">Thông tin liên hệ</h5>
+            <ul>
+              <li className="uppercase {{ Request::is('batdongsan*') ? 'underline' : '' }}">
+                <a href="{{ route('batdongsan') }}" className="grey-text text-lighten-3">Địa chỉ: Thạch Thất - Hà Nội</a>
+              </li>
+
+              <li className="uppercase {{ Request::is('nhamoigioi*') ? 'underline' : '' }}">
+                <a href="{{ route('nhamoigioi') }}" className="grey-text text-lighten-3">SĐT: 0986579099</a>
+              </li>
+
+              <li className="uppercase {{ Request::is('bosuutap*') ? 'underline' : '' }}">
+                <a href="{{ route('bosuutap') }}" className="grey-text text-lighten-3">Email: kiendo@kienland.com.vn</a>
+              </li>
             </ul>
           </div>
-        </div>
-        <hr/>
-        <div className="row">
-          <p className="col-sm">
-            &copy;{new Date().getFullYear()} Kienland | All rights reserved |
-            Terms Of Service | Privacy
-          </p>
         </div>
       </div>
-    </div>
+      <div className="footer-copyright">
+        <div className="container">
+          © Bản quyền thuộc về Kienland
+          <a className="grey-text text-lighten-4 right" href="{{ $footersettings[0]['facebook'] }}"
+             target="_blank">FACEBOOK</a>
+          <a className="grey-text text-lighten-4 right m-r-10" href="{{ $footersettings[0]['twitter'] }}"
+             target="_blank">TWITTER</a>
+          <a className="grey-text text-lighten-4 right m-r-10" href="{{ $footersettings[0]['linkedin'] }}"
+             target="_blank">LINKEDIN</a>
+        </div>
+      </div>
+    </footer>
   );
 }
 

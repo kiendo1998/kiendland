@@ -1,4 +1,6 @@
 import AboutUs from 'app/modules/about-us/about-us';
+import Property from 'app/modules/property/property';
+import News from 'app/modules/news/news';
 import React from 'react';
 import { Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
@@ -29,6 +31,8 @@ const Admin = Loadable({
 const Routes = () => (
   <div className="view-routes">
     <Switch>
+      <ErrorBoundaryRoute path="/show/news" exact component={News} />
+      <ErrorBoundaryRoute path="/show/property" exact component={Property} />
       <ErrorBoundaryRoute path="/login" component={Login} />
       <ErrorBoundaryRoute path="/logout" component={Logout} />
       <ErrorBoundaryRoute path="/account/register" component={Register} />

@@ -32,6 +32,26 @@ export const Home = props => (
     </div>
 
 );
+export const Property = props => (
+  <NavItem>
+    <NavLink tag={Link} to="/show/property" className="d-flex align-items-center">
+      <FontAwesomeIcon icon="building" />
+      <span>
+        Bất động sản
+      </span>
+    </NavLink>
+  </NavItem>
+);
+export const News = props => (
+  <NavItem>
+    <NavLink tag={Link} to="/show/news" className="d-flex align-items-center">
+      <FontAwesomeIcon icon="newspaper" />
+      <span>
+        Tin tức
+      </span>
+    </NavLink>
+  </NavItem>
+);
 export const AboutUs = props => (
   <NavItem>
     <NavLink tag={Link} to="/about-us" className="d-flex align-items-center">
