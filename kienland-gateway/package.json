@@ -28,6 +28,7 @@
     "react-redux": "7.2.0",
     "react-redux-loading-bar": "4.6.0",
     "react-router-dom": "5.1.2",
+    "react-slick": "^0.27.13",
     "react-slideshow-image": "^3.4.3",
     "react-toastify": "5.5.0",
     "react-transition-group": "4.3.0",

@@ -8,3 +8,21 @@ Main page styles
   background: url('../../../content/images/bg.png') no-repeat center top;
   background-size: contain;
 }
+.row .col.s12 {
+  width: 100%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+}
+.row .col.offset-s12 {
+  margin-left: 100%;
+}
+
+.row .col.pull-s12 {
+  right: 100%;
+}
+
+.row .col.push-s12 {
+  left: 100%;
+}
+
