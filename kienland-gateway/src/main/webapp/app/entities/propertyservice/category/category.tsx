@@ -11,6 +11,7 @@ import { ICategory } from 'app/shared/model/propertyservice/category.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
+import { MDBInput, MDBCol } from "mdbreact";
 
 export interface ICategoryProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
@@ -74,6 +75,9 @@ export const Category = (props: ICategoryProps) => {
           &nbsp; Create new Category
         </Link>
       </h2>
+      <MDBCol md="6">
+        <MDBInput hint="Tìm kiếm" type="text" containerClass="mt-0" />
+      </MDBCol>
       <div className="table-responsive">
         {categoryList && categoryList.length > 0 ? (
           <Table responsive>

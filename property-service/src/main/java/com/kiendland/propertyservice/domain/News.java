@@ -34,6 +34,12 @@ public class News implements Serializable {
     @Column(name = "publish_date")
     private LocalDate publishDate;
 
+    @Column(name = "images")
+    private String images;
+
+    @Column(name = "title_image")
+    private String titleImage;
+
     @ManyToMany
     @JoinTable(name = "news_tag",
                joinColumns = @JoinColumn(name = "news_id", referencedColumnName = "id"),
@@ -92,6 +98,32 @@ public class News implements Serializable {
 
     public void setPublishDate(LocalDate publishDate) {
         this.publishDate = publishDate;
+    }
+
+    public String getImages() {
+        return images;
+    }
+
+    public News images(String images) {
+        this.images = images;
+        return this;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
+    }
+
+    public String getTitleImage() {
+        return titleImage;
+    }
+
+    public News titleImage(String titleImage) {
+        this.titleImage = titleImage;
+        return this;
+    }
+
+    public void setTitleImage(String titleImage) {
+        this.titleImage = titleImage;
     }
 
     public Set<Tag> getTags() {
@@ -169,6 +201,8 @@ public class News implements Serializable {
             ", title='" + getTitle() + "'" +
             ", content='" + getContent() + "'" +
             ", publishDate='" + getPublishDate() + "'" +
+            ", images='" + getImages() + "'" +
+            ", titleImage='" + getTitleImage() + "'" +
             "}";
     }
 }

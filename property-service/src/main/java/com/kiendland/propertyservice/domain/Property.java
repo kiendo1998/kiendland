@@ -58,6 +58,21 @@ public class Property implements Serializable {
     @Column(name = "longitude")
     private String longitude;
 
+    @Column(name = "images")
+    private String images;
+
+    @Column(name = "create_by")
+    private String createBy;
+
+    @Column(name = "title_image")
+    private String titleImage;
+
+    @Column(name = "bed_room")
+    private Integer bedRoom;
+
+    @Column(name = "bath_room")
+    private Integer bathRoom;
+
     @ManyToMany
     @JoinTable(name = "property_tag",
                joinColumns = @JoinColumn(name = "property_id", referencedColumnName = "id"),
@@ -222,6 +237,71 @@ public class Property implements Serializable {
         this.longitude = longitude;
     }
 
+    public String getImages() {
+        return images;
+    }
+
+    public Property images(String images) {
+        this.images = images;
+        return this;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
+    }
+
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public Property createBy(String createBy) {
+        this.createBy = createBy;
+        return this;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
+    }
+
+    public String getTitleImage() {
+        return titleImage;
+    }
+
+    public Property titleImage(String titleImage) {
+        this.titleImage = titleImage;
+        return this;
+    }
+
+    public void setTitleImage(String titleImage) {
+        this.titleImage = titleImage;
+    }
+
+    public Integer getBedRoom() {
+        return bedRoom;
+    }
+
+    public Property bedRoom(Integer bedRoom) {
+        this.bedRoom = bedRoom;
+        return this;
+    }
+
+    public void setBedRoom(Integer bedRoom) {
+        this.bedRoom = bedRoom;
+    }
+
+    public Integer getBathRoom() {
+        return bathRoom;
+    }
+
+    public Property bathRoom(Integer bathRoom) {
+        this.bathRoom = bathRoom;
+        return this;
+    }
+
+    public void setBathRoom(Integer bathRoom) {
+        this.bathRoom = bathRoom;
+    }
+
     public Set<Tag> getTags() {
         return tags;
     }
@@ -305,6 +385,11 @@ public class Property implements Serializable {
             ", description='" + getDescription() + "'" +
             ", latitude='" + getLatitude() + "'" +
             ", longitude='" + getLongitude() + "'" +
+            ", images='" + getImages() + "'" +
+            ", createBy='" + getCreateBy() + "'" +
+            ", titleImage='" + getTitleImage() + "'" +
+            ", bedRoom=" + getBedRoom() +
+            ", bathRoom=" + getBathRoom() +
             "}";
     }
 }

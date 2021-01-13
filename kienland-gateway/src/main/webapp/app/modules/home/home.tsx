@@ -124,7 +124,7 @@ export const Home = (props: IHomeProp) => {
       activePage: currentPage,
     });
 
-  const {propertyList,newsList, match, loading,loadingNews, totalItems,totalItemsNews} = props;
+  const {propertyList, newsList, match, loading, loadingNews, totalItems, totalItemsNews} = props;
   return (
     <div>
       <div className="slide-container">
@@ -184,7 +184,7 @@ export const Home = (props: IHomeProp) => {
                     </div>
                     <div className="card-content property-content">
                       {/*  noi dung property*/}
-                      <a>
+                      <a href={`${match.url}/${property.id}`}>
                         {property.title}
                       </a>
                       <div className="address">
@@ -235,23 +235,45 @@ export const Home = (props: IHomeProp) => {
       </section>
       { /*news section*/}
       <section className="section center">
-        <div className="row">
-          <h4 className="section-heading">Tin tức mới</h4>
-        </div>
         <div className="container">
+          <div className="row">
+            <h4 className="section-heading">Tin tức mới</h4>
+          </div>
           {newsList && newsList.length > 0 ? (
             <div className="row">
               {newsList.map((news, i) => (
                 <div key={`entity-${i}`} className="col-sm-4">
                   <div className="card">
                     <div className="card-image">
+                                            <span className="card-image-bg"
+                                                  style={{'backgroundImage': `url(${slideImages[2]})`}}></span>
                     </div>
                     <div className="card-content">
-                      <a>
+                      <span className="card-title tooltipped" data-position="bottom" data-tooltip="{{$post->title}}">
+                        <a href={`${match.url}/${news.id}`}>
                         {news.title}
                       </a>
+                      </span>
+
+                      {news.content.substring(0, 120)}
                     </div>
                     <div className="card-action blog-action">
+                      <a href="{{ route('blog.author',$post->user->username) }}" className="btn-flat">
+                        <i className="material-icons">person</i>
+                        <span>Admin</span>
+                      </a>
+                      <a href="{{ route('blog.categories',$category->slug) }}" className="btn-flat">
+                        <i className="material-icons">folder</i>
+                        <span>categories</span>
+                      </a>
+                      <a href="{{ route('blog.tags',$tag->slug) }}" className="btn-flat">
+                        <i className="material-icons">label</i>
+                        <span>tags</span>
+                      </a>
+                      <a href="#" className="btn-flat disabled">
+                        <i className="material-icons">watch_later</i>
+                        <span>{news.publishDate}</span>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -371,7 +393,7 @@ export const Home = (props: IHomeProp) => {
 // });
 
 // type StateProps = ReturnType<typeof mapStateToProps>;
-const mapStateToProps = ({news,property}: IRootState) => ({
+const mapStateToProps = ({news, property}: IRootState) => ({
   newsList: news.entities,
   loadingNews: news.loading,
   totalItemsNews: news.totalItems,
@@ -388,6 +410,3 @@ const mapDispatchToProps = {
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
-
-
-

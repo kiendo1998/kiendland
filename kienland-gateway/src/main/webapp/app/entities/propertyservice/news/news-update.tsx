@@ -117,6 +117,18 @@ export const NewsUpdate = (props: INewsUpdateProps) => {
                 <AvField id="news-publishDate" type="date" className="form-control" name="publishDate" />
               </AvGroup>
               <AvGroup>
+                <Label id="imagesLabel" for="news-images">
+                  Images
+                </Label>
+                <AvField id="news-images" type="text" name="images" />
+              </AvGroup>
+              <AvGroup>
+                <Label id="titleImageLabel" for="news-titleImage">
+                  Title Image
+                </Label>
+                <AvField id="news-titleImage" type="text" name="titleImage" />
+              </AvGroup>
+              <AvGroup>
                 <Label for="news-tag">Tag</Label>
                 <AvInput
                   id="news-tag"

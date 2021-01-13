@@ -67,6 +67,26 @@
     {
       "fieldName": "longitude",
       "fieldType": "String"
+    },
+    {
+      "fieldName": "images",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "titleImage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bedRoom",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "bathRoom",
+      "fieldType": "Integer"
     }
   ],
   "changelogDate": "20201209162559",

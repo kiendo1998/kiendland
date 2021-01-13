@@ -11,7 +11,7 @@ import { IProperty } from 'app/shared/model/propertyservice/property.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
-
+import { MDBInput, MDBCol } from "mdbreact";
 export interface IPropertyProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
 export const Property = (props: IPropertyProps) => {
@@ -74,6 +74,9 @@ export const Property = (props: IPropertyProps) => {
           &nbsp; Create new Property
         </Link>
       </h2>
+      <MDBCol md="6">
+        <MDBInput hint="Tìm kiếm" type="text" containerClass="mt-0" />
+      </MDBCol>
       <div className="table-responsive">
         {propertyList && propertyList.length > 0 ? (
           <Table responsive>
@@ -115,6 +118,21 @@ export const Property = (props: IPropertyProps) => {
                 <th className="hand" onClick={sort('longitude')}>
                   Longitude <FontAwesomeIcon icon="sort" />
                 </th>
+                <th className="hand" onClick={sort('images')}>
+                  Images <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={sort('createBy')}>
+                  Create By <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={sort('titleImage')}>
+                  Title Image <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={sort('bedRoom')}>
+                  Bed Room <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={sort('bathRoom')}>
+                  Bath Room <FontAwesomeIcon icon="sort" />
+                </th>
                 <th />
               </tr>
             </thead>
@@ -137,6 +155,11 @@ export const Property = (props: IPropertyProps) => {
                   <td>{property.description}</td>
                   <td>{property.latitude}</td>
                   <td>{property.longitude}</td>
+                  <td>{property.images}</td>
+                  <td>{property.createBy}</td>
+                  <td>{property.titleImage}</td>
+                  <td>{property.bedRoom}</td>
+                  <td>{property.bathRoom}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${property.id}`} color="info" size="sm">

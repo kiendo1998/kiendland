@@ -69,6 +69,26 @@ export const PropertyDetail = (props: IPropertyDetailProps) => {
             <span id="longitude">Longitude</span>
           </dt>
           <dd>{propertyEntity.longitude}</dd>
+          <dt>
+            <span id="images">Images</span>
+          </dt>
+          <dd>{propertyEntity.images}</dd>
+          <dt>
+            <span id="createBy">Create By</span>
+          </dt>
+          <dd>{propertyEntity.createBy}</dd>
+          <dt>
+            <span id="titleImage">Title Image</span>
+          </dt>
+          <dd>{propertyEntity.titleImage}</dd>
+          <dt>
+            <span id="bedRoom">Bed Room</span>
+          </dt>
+          <dd>{propertyEntity.bedRoom}</dd>
+          <dt>
+            <span id="bathRoom">Bath Room</span>
+          </dt>
+          <dd>{propertyEntity.bathRoom}</dd>
           <dt>Tag</dt>
           <dd>
             {propertyEntity.tags

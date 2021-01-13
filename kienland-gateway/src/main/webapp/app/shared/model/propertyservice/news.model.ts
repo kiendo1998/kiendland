@@ -7,6 +7,8 @@ export interface INews {
   title?: string;
   content?: string;
   publishDate?: string;
+  images?: string;
+  titleImage?: string;
   tags?: ITag[];
   categories?: ICategory[];
 }

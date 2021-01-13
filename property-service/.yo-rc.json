@@ -16,7 +16,6 @@
     "databaseType": "sql",
     "devDatabaseType": "mysql",
     "prodDatabaseType": "mysql",
-    "searchEngine": false,
     "messageBroker": false,
     "serviceDiscoveryType": "eureka",
     "buildTool": "maven",
@@ -34,6 +33,7 @@
     "blueprints": [],
     "skipClient": true,
     "skipUserManagement": true,
-    "lastLiquibaseTimestamp": 1607532839000
+    "lastLiquibaseTimestamp": 1607532839000,
+    "searchEngine": false
   }
 }

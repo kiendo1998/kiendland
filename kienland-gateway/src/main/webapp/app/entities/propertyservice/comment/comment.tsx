@@ -11,7 +11,7 @@ import { IComment } from 'app/shared/model/propertyservice/comment.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
-
+import { MDBInput, MDBCol } from "mdbreact";
 export interface ICommentProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
 export const Comment = (props: ICommentProps) => {
@@ -74,6 +74,9 @@ export const Comment = (props: ICommentProps) => {
           &nbsp; Thêm bình luận
         </Link>
       </h2>
+      <MDBCol md="6">
+        <MDBInput hint="Tìm kiếm" type="text" containerClass="mt-0" />
+      </MDBCol>
       <div className="table-responsive">
         {commentList && commentList.length > 0 ? (
           <Table responsive>

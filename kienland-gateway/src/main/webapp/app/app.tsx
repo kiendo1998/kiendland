@@ -1,5 +1,11 @@
 import 'react-toastify/dist/ReactToastify.css';
 import './app.scss';
+import '../content/css/materialize.css'
+import '../content/css/styles.css'
+import '../content/css/loading.css'
+import '../content/css/app.css'
+
+
 
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';

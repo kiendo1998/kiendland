@@ -71,6 +71,21 @@ public class PropertyResourceIT {
     private static final String DEFAULT_LONGITUDE = "AAAAAAAAAA";
     private static final String UPDATED_LONGITUDE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_IMAGES = "AAAAAAAAAA";
+    private static final String UPDATED_IMAGES = "BBBBBBBBBB";
+
+    private static final String DEFAULT_CREATE_BY = "AAAAAAAAAA";
+    private static final String UPDATED_CREATE_BY = "BBBBBBBBBB";
+
+    private static final String DEFAULT_TITLE_IMAGE = "AAAAAAAAAA";
+    private static final String UPDATED_TITLE_IMAGE = "BBBBBBBBBB";
+
+    private static final Integer DEFAULT_BED_ROOM = 1;
+    private static final Integer UPDATED_BED_ROOM = 2;
+
+    private static final Integer DEFAULT_BATH_ROOM = 1;
+    private static final Integer UPDATED_BATH_ROOM = 2;
+
     @Autowired
     private PropertyRepository propertyRepository;
 
@@ -109,7 +124,12 @@ public class PropertyResourceIT {
             .area(DEFAULT_AREA)
             .description(DEFAULT_DESCRIPTION)
             .latitude(DEFAULT_LATITUDE)
-            .longitude(DEFAULT_LONGITUDE);
+            .longitude(DEFAULT_LONGITUDE)
+            .images(DEFAULT_IMAGES)
+            .createBy(DEFAULT_CREATE_BY)
+            .titleImage(DEFAULT_TITLE_IMAGE)
+            .bedRoom(DEFAULT_BED_ROOM)
+            .bathRoom(DEFAULT_BATH_ROOM);
         return property;
     }
     /**
@@ -130,7 +150,12 @@ public class PropertyResourceIT {
             .area(UPDATED_AREA)
             .description(UPDATED_DESCRIPTION)
             .latitude(UPDATED_LATITUDE)
-            .longitude(UPDATED_LONGITUDE);
+            .longitude(UPDATED_LONGITUDE)
+            .images(UPDATED_IMAGES)
+            .createBy(UPDATED_CREATE_BY)
+            .titleImage(UPDATED_TITLE_IMAGE)
+            .bedRoom(UPDATED_BED_ROOM)
+            .bathRoom(UPDATED_BATH_ROOM);
         return property;
     }
 
@@ -164,6 +189,11 @@ public class PropertyResourceIT {
         assertThat(testProperty.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testProperty.getLatitude()).isEqualTo(DEFAULT_LATITUDE);
         assertThat(testProperty.getLongitude()).isEqualTo(DEFAULT_LONGITUDE);
+        assertThat(testProperty.getImages()).isEqualTo(DEFAULT_IMAGES);
+        assertThat(testProperty.getCreateBy()).isEqualTo(DEFAULT_CREATE_BY);
+        assertThat(testProperty.getTitleImage()).isEqualTo(DEFAULT_TITLE_IMAGE);
+        assertThat(testProperty.getBedRoom()).isEqualTo(DEFAULT_BED_ROOM);
+        assertThat(testProperty.getBathRoom()).isEqualTo(DEFAULT_BATH_ROOM);
     }
 
     @Test
@@ -283,7 +313,12 @@ public class PropertyResourceIT {
             .andExpect(jsonPath("$.[*].area").value(hasItem(DEFAULT_AREA.doubleValue())))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
             .andExpect(jsonPath("$.[*].latitude").value(hasItem(DEFAULT_LATITUDE)))
-            .andExpect(jsonPath("$.[*].longitude").value(hasItem(DEFAULT_LONGITUDE)));
+            .andExpect(jsonPath("$.[*].longitude").value(hasItem(DEFAULT_LONGITUDE)))
+            .andExpect(jsonPath("$.[*].images").value(hasItem(DEFAULT_IMAGES)))
+            .andExpect(jsonPath("$.[*].createBy").value(hasItem(DEFAULT_CREATE_BY)))
+            .andExpect(jsonPath("$.[*].titleImage").value(hasItem(DEFAULT_TITLE_IMAGE)))
+            .andExpect(jsonPath("$.[*].bedRoom").value(hasItem(DEFAULT_BED_ROOM)))
+            .andExpect(jsonPath("$.[*].bathRoom").value(hasItem(DEFAULT_BATH_ROOM)));
     }
     
     @SuppressWarnings({"unchecked"})
@@ -327,7 +362,12 @@ public class PropertyResourceIT {
             .andExpect(jsonPath("$.area").value(DEFAULT_AREA.doubleValue()))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
             .andExpect(jsonPath("$.latitude").value(DEFAULT_LATITUDE))
-            .andExpect(jsonPath("$.longitude").value(DEFAULT_LONGITUDE));
+            .andExpect(jsonPath("$.longitude").value(DEFAULT_LONGITUDE))
+            .andExpect(jsonPath("$.images").value(DEFAULT_IMAGES))
+            .andExpect(jsonPath("$.createBy").value(DEFAULT_CREATE_BY))
+            .andExpect(jsonPath("$.titleImage").value(DEFAULT_TITLE_IMAGE))
+            .andExpect(jsonPath("$.bedRoom").value(DEFAULT_BED_ROOM))
+            .andExpect(jsonPath("$.bathRoom").value(DEFAULT_BATH_ROOM));
     }
     @Test
     @Transactional
@@ -360,7 +400,12 @@ public class PropertyResourceIT {
             .area(UPDATED_AREA)
             .description(UPDATED_DESCRIPTION)
             .latitude(UPDATED_LATITUDE)
-            .longitude(UPDATED_LONGITUDE);
+            .longitude(UPDATED_LONGITUDE)
+            .images(UPDATED_IMAGES)
+            .createBy(UPDATED_CREATE_BY)
+            .titleImage(UPDATED_TITLE_IMAGE)
+            .bedRoom(UPDATED_BED_ROOM)
+            .bathRoom(UPDATED_BATH_ROOM);
 
         restPropertyMockMvc.perform(put("/api/properties")
             .contentType(MediaType.APPLICATION_JSON)
@@ -382,6 +427,11 @@ public class PropertyResourceIT {
         assertThat(testProperty.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testProperty.getLatitude()).isEqualTo(UPDATED_LATITUDE);
         assertThat(testProperty.getLongitude()).isEqualTo(UPDATED_LONGITUDE);
+        assertThat(testProperty.getImages()).isEqualTo(UPDATED_IMAGES);
+        assertThat(testProperty.getCreateBy()).isEqualTo(UPDATED_CREATE_BY);
+        assertThat(testProperty.getTitleImage()).isEqualTo(UPDATED_TITLE_IMAGE);
+        assertThat(testProperty.getBedRoom()).isEqualTo(UPDATED_BED_ROOM);
+        assertThat(testProperty.getBathRoom()).isEqualTo(UPDATED_BATH_ROOM);
     }
 
     @Test

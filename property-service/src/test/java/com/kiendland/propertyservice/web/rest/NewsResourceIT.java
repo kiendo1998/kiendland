@@ -49,6 +49,12 @@ public class NewsResourceIT {
     private static final LocalDate DEFAULT_PUBLISH_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_PUBLISH_DATE = LocalDate.now(ZoneId.systemDefault());
 
+    private static final String DEFAULT_IMAGES = "AAAAAAAAAA";
+    private static final String UPDATED_IMAGES = "BBBBBBBBBB";
+
+    private static final String DEFAULT_TITLE_IMAGE = "AAAAAAAAAA";
+    private static final String UPDATED_TITLE_IMAGE = "BBBBBBBBBB";
+
     @Autowired
     private NewsRepository newsRepository;
 
@@ -79,7 +85,9 @@ public class NewsResourceIT {
         News news = new News()
             .title(DEFAULT_TITLE)
             .content(DEFAULT_CONTENT)
-            .publishDate(DEFAULT_PUBLISH_DATE);
+            .publishDate(DEFAULT_PUBLISH_DATE)
+            .images(DEFAULT_IMAGES)
+            .titleImage(DEFAULT_TITLE_IMAGE);
         return news;
     }
     /**
@@ -92,7 +100,9 @@ public class NewsResourceIT {
         News news = new News()
             .title(UPDATED_TITLE)
             .content(UPDATED_CONTENT)
-            .publishDate(UPDATED_PUBLISH_DATE);
+            .publishDate(UPDATED_PUBLISH_DATE)
+            .images(UPDATED_IMAGES)
+            .titleImage(UPDATED_TITLE_IMAGE);
         return news;
     }
 
@@ -118,6 +128,8 @@ public class NewsResourceIT {
         assertThat(testNews.getTitle()).isEqualTo(DEFAULT_TITLE);
         assertThat(testNews.getContent()).isEqualTo(DEFAULT_CONTENT);
         assertThat(testNews.getPublishDate()).isEqualTo(DEFAULT_PUBLISH_DATE);
+        assertThat(testNews.getImages()).isEqualTo(DEFAULT_IMAGES);
+        assertThat(testNews.getTitleImage()).isEqualTo(DEFAULT_TITLE_IMAGE);
     }
 
     @Test
@@ -191,7 +203,9 @@ public class NewsResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(news.getId().intValue())))
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
             .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT)))
-            .andExpect(jsonPath("$.[*].publishDate").value(hasItem(DEFAULT_PUBLISH_DATE.toString())));
+            .andExpect(jsonPath("$.[*].publishDate").value(hasItem(DEFAULT_PUBLISH_DATE.toString())))
+            .andExpect(jsonPath("$.[*].images").value(hasItem(DEFAULT_IMAGES)))
+            .andExpect(jsonPath("$.[*].titleImage").value(hasItem(DEFAULT_TITLE_IMAGE)));
     }
     
     @SuppressWarnings({"unchecked"})
@@ -227,7 +241,9 @@ public class NewsResourceIT {
             .andExpect(jsonPath("$.id").value(news.getId().intValue()))
             .andExpect(jsonPath("$.title").value(DEFAULT_TITLE))
             .andExpect(jsonPath("$.content").value(DEFAULT_CONTENT))
-            .andExpect(jsonPath("$.publishDate").value(DEFAULT_PUBLISH_DATE.toString()));
+            .andExpect(jsonPath("$.publishDate").value(DEFAULT_PUBLISH_DATE.toString()))
+            .andExpect(jsonPath("$.images").value(DEFAULT_IMAGES))
+            .andExpect(jsonPath("$.titleImage").value(DEFAULT_TITLE_IMAGE));
     }
     @Test
     @Transactional
@@ -252,7 +268,9 @@ public class NewsResourceIT {
         updatedNews
             .title(UPDATED_TITLE)
             .content(UPDATED_CONTENT)
-            .publishDate(UPDATED_PUBLISH_DATE);
+            .publishDate(UPDATED_PUBLISH_DATE)
+            .images(UPDATED_IMAGES)
+            .titleImage(UPDATED_TITLE_IMAGE);
 
         restNewsMockMvc.perform(put("/api/news")
             .contentType(MediaType.APPLICATION_JSON)
@@ -266,6 +284,8 @@ public class NewsResourceIT {
         assertThat(testNews.getTitle()).isEqualTo(UPDATED_TITLE);
         assertThat(testNews.getContent()).isEqualTo(UPDATED_CONTENT);
         assertThat(testNews.getPublishDate()).isEqualTo(UPDATED_PUBLISH_DATE);
+        assertThat(testNews.getImages()).isEqualTo(UPDATED_IMAGES);
+        assertThat(testNews.getTitleImage()).isEqualTo(UPDATED_TITLE_IMAGE);
     }
 
     @Test

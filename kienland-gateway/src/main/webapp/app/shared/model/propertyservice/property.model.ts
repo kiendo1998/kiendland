@@ -14,6 +14,11 @@ export interface IProperty {
   description?: string;
   latitude?: string;
   longitude?: string;
+  images?: string;
+  createBy?: string;
+  titleImage?: string;
+  bedRoom?: number;
+  bathRoom?: number;
   tags?: ITag[];
   categories?: ICategory[];
 }

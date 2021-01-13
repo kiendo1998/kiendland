@@ -35,6 +35,14 @@
     {
       "fieldName": "publishDate",
       "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "images",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "titleImage",
+      "fieldType": "String"
     }
   ],
   "changelogDate": "20201209164719",

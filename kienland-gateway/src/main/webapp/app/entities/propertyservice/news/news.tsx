@@ -11,7 +11,7 @@ import { INews } from 'app/shared/model/propertyservice/news.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
-
+import {MDBCol, MDBDataTable, MDBInput} from "mdbreact";
 export interface INewsProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
 export const News = (props: INewsProps) => {
@@ -74,6 +74,9 @@ export const News = (props: INewsProps) => {
           &nbsp; Create new News
         </Link>
       </h2>
+      <MDBCol md="6">
+        <MDBInput hint="Tìm kiếm" type="text" containerClass="mt-0" />
+      </MDBCol>
       <div className="table-responsive">
         {newsList && newsList.length > 0 ? (
           <Table responsive>
@@ -91,6 +94,12 @@ export const News = (props: INewsProps) => {
                 <th className="hand" onClick={sort('publishDate')}>
                   Publish Date <FontAwesomeIcon icon="sort" />
                 </th>
+                <th className="hand" onClick={sort('images')}>
+                  Images <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={sort('titleImage')}>
+                  Title Image <FontAwesomeIcon icon="sort" />
+                </th>
                 <th />
               </tr>
             </thead>
@@ -105,6 +114,8 @@ export const News = (props: INewsProps) => {
                   <td>{news.title}</td>
                   <td>{news.content}</td>
                   <td>{news.publishDate ? <TextFormat type="date" value={news.publishDate} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
+                  <td>{news.images}</td>
+                  <td>{news.titleImage}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${news.id}`} color="info" size="sm">

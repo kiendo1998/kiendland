@@ -39,6 +39,14 @@ export const NewsDetail = (props: INewsDetailProps) => {
           <dd>
             {newsEntity.publishDate ? <TextFormat value={newsEntity.publishDate} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}
           </dd>
+          <dt>
+            <span id="images">Images</span>
+          </dt>
+          <dd>{newsEntity.images}</dd>
+          <dt>
+            <span id="titleImage">Title Image</span>
+          </dt>
+          <dd>{newsEntity.titleImage}</dd>
           <dt>Tag</dt>
           <dd>
             {newsEntity.tags

@@ -172,6 +172,36 @@ export const PropertyUpdate = (props: IPropertyUpdateProps) => {
                 <AvField id="property-longitude" type="text" name="longitude" />
               </AvGroup>
               <AvGroup>
+                <Label id="imagesLabel" for="property-images">
+                  Images
+                </Label>
+                <AvField id="property-images" type="text" name="images" />
+              </AvGroup>
+              <AvGroup>
+                <Label id="createByLabel" for="property-createBy">
+                  Create By
+                </Label>
+                <AvField id="property-createBy" type="text" name="createBy" />
+              </AvGroup>
+              <AvGroup>
+                <Label id="titleImageLabel" for="property-titleImage">
+                  Title Image
+                </Label>
+                <AvField id="property-titleImage" type="text" name="titleImage" />
+              </AvGroup>
+              <AvGroup>
+                <Label id="bedRoomLabel" for="property-bedRoom">
+                  Bed Room
+                </Label>
+                <AvField id="property-bedRoom" type="string" className="form-control" name="bedRoom" />
+              </AvGroup>
+              <AvGroup>
+                <Label id="bathRoomLabel" for="property-bathRoom">
+                  Bath Room
+                </Label>
+                <AvField id="property-bathRoom" type="string" className="form-control" name="bathRoom" />
+              </AvGroup>
+              <AvGroup>
                 <Label for="property-tag">Tag</Label>
                 <AvInput
                   id="property-tag"

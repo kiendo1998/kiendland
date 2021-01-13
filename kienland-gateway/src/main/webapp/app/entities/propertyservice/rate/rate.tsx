@@ -11,7 +11,7 @@ import { IRate } from 'app/shared/model/propertyservice/rate.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
-
+import { MDBInput, MDBCol } from "mdbreact";
 export interface IRateProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
 export const Rate = (props: IRateProps) => {
@@ -74,6 +74,9 @@ export const Rate = (props: IRateProps) => {
           &nbsp; Thêm đánh giá
         </Link>
       </h2>
+      <MDBCol md="6">
+        <MDBInput hint="Tìm kiếm" type="text" containerClass="mt-0" />
+      </MDBCol>
       <div className="table-responsive">
         {rateList && rateList.length > 0 ? (
           <Table responsive>
