@@ -8,29 +8,23 @@ import { NavDropdown } from './menu-components';
 
 export const EntitiesMenu = props => (
   <NavDropdown icon="th-list" name="Quản lý" id="entity-menu" style={{ maxHeight: '80vh', overflow: 'auto' }}>
-    <MenuItem icon="asterisk" to="/property">
+    <MenuItem icon="building" to="/property">
       Quản lý bất động sản
     </MenuItem>
-    <MenuItem icon="asterisk" to="/news">
+    <MenuItem icon="newspaper" to="/news">
       Quản lý tin tức
     </MenuItem>
-    <MenuItem icon="asterisk" to="/rate">
+    <MenuItem icon="star" to="/rate">
       Quản lý đánh giá
     </MenuItem>
-    <MenuItem icon="asterisk" to="/tag">
+    <MenuItem icon="tags" to="/tag">
       Quản lý tag
     </MenuItem>
-    <MenuItem icon="asterisk" to="/category">
+    <MenuItem icon="list-alt" to="/category">
       Quản lý chủ đề
     </MenuItem>
-    <MenuItem icon="asterisk" to="/comment">
+    <MenuItem icon="comments" to="/comment">
       Quản lý bình luận
-    </MenuItem>
-    <MenuItem icon="asterisk" to="/news">
-      News
-    </MenuItem>
-    <MenuItem icon="asterisk" to="/property">
-      Property
     </MenuItem>
     {/* jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here */}
   </NavDropdown>

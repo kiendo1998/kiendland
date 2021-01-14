@@ -67,7 +67,7 @@ export const PropertyUpdate = (props: IPropertyUpdateProps) => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="kienlandgatewayApp.propertyserviceProperty.home.createOrEditLabel">Create or edit a Property</h2>
+          <h2 id="kienlandgatewayApp.propertyserviceProperty.home.createOrEditLabel">Tạo mới hay sửa bất động sản</h2>
         </Col>
       </Row>
       <Row className="justify-content-center">
@@ -84,20 +84,20 @@ export const PropertyUpdate = (props: IPropertyUpdateProps) => {
               ) : null}
               <AvGroup>
                 <Label id="titleLabel" for="property-title">
-                  Title
+                  Tiêu đề
                 </Label>
                 <AvField
                   id="property-title"
                   type="text"
                   name="title"
                   validate={{
-                    required: { value: true, errorMessage: 'This field is required.' },
+                    required: { value: true, errorMessage: 'Trường này là bắt buộc.' },
                   }}
                 />
               </AvGroup>
               <AvGroup>
                 <Label id="priceLabel" for="property-price">
-                  Price
+                  Giá
                 </Label>
                 <AvField
                   id="property-price"
@@ -105,104 +105,104 @@ export const PropertyUpdate = (props: IPropertyUpdateProps) => {
                   className="form-control"
                   name="price"
                   validate={{
-                    required: { value: true, errorMessage: 'This field is required.' },
-                    number: { value: true, errorMessage: 'This field should be a number.' },
+                    required: { value: true, errorMessage: 'Trường này là bắt buộc.' },
+                    number: { value: true, errorMessage: 'Trường này phải là một số.' },
                   }}
                 />
               </AvGroup>
               <AvGroup check>
                 <Label id="featuredLabel">
                   <AvInput id="property-featured" type="checkbox" className="form-check-input" name="featured" />
-                  Featured
+                  Nổi bật
                 </Label>
               </AvGroup>
               <AvGroup>
                 <Label id="purposeLabel" for="property-purpose">
-                  Purpose
+                  Mục đích
                 </Label>
                 <AvField
                   id="property-purpose"
                   type="text"
                   name="purpose"
                   validate={{
-                    required: { value: true, errorMessage: 'This field is required.' },
+                    required: { value: true, errorMessage: 'Trường này là bắt buộc.' },
                   }}
                 />
               </AvGroup>
               <AvGroup>
                 <Label id="typeLabel" for="property-type">
-                  Type
+                  Kiểu
                 </Label>
                 <AvField id="property-type" type="text" name="type" />
               </AvGroup>
               <AvGroup>
                 <Label id="projectLabel" for="property-project">
-                  Project
+                  Dự án
                 </Label>
                 <AvField id="property-project" type="text" name="project" />
               </AvGroup>
               <AvGroup>
                 <Label id="addressLabel" for="property-address">
-                  Address
+                  Địa chỉ
                 </Label>
                 <AvField id="property-address" type="text" name="address" />
               </AvGroup>
               <AvGroup>
                 <Label id="areaLabel" for="property-area">
-                  Area
+                  Diện tích
                 </Label>
                 <AvField id="property-area" type="string" className="form-control" name="area" />
               </AvGroup>
               <AvGroup>
                 <Label id="descriptionLabel" for="property-description">
-                  Description
+                  Mô tả
                 </Label>
                 <AvField id="property-description" type="text" name="description" />
               </AvGroup>
               <AvGroup>
                 <Label id="latitudeLabel" for="property-latitude">
-                  Latitude
+                  Vĩ độ
                 </Label>
                 <AvField id="property-latitude" type="text" name="latitude" />
               </AvGroup>
               <AvGroup>
                 <Label id="longitudeLabel" for="property-longitude">
-                  Longitude
+                  Kinh độ
                 </Label>
                 <AvField id="property-longitude" type="text" name="longitude" />
               </AvGroup>
               <AvGroup>
                 <Label id="imagesLabel" for="property-images">
-                  Images
+                  Ảnh
                 </Label>
-                <AvField id="property-images" type="text" name="images" />
+                <AvField id="property-images" type="text" name="images" multiple/>
               </AvGroup>
               <AvGroup>
                 <Label id="createByLabel" for="property-createBy">
-                  Create By
+                  Tạo bởi
                 </Label>
                 <AvField id="property-createBy" type="text" name="createBy" />
               </AvGroup>
               <AvGroup>
                 <Label id="titleImageLabel" for="property-titleImage">
-                  Title Image
+                  Tiêu đề ảnh
                 </Label>
                 <AvField id="property-titleImage" type="text" name="titleImage" />
               </AvGroup>
               <AvGroup>
                 <Label id="bedRoomLabel" for="property-bedRoom">
-                  Bed Room
+                  Số phòng ngủ
                 </Label>
                 <AvField id="property-bedRoom" type="string" className="form-control" name="bedRoom" />
               </AvGroup>
               <AvGroup>
                 <Label id="bathRoomLabel" for="property-bathRoom">
-                  Bath Room
+                  Số phòng tắm
                 </Label>
                 <AvField id="property-bathRoom" type="string" className="form-control" name="bathRoom" />
               </AvGroup>
               <AvGroup>
-                <Label for="property-tag">Tag</Label>
+                <Label for="property-tag">Gắn Thẻ</Label>
                 <AvInput
                   id="property-tag"
                   type="select"
@@ -215,14 +215,14 @@ export const PropertyUpdate = (props: IPropertyUpdateProps) => {
                   {tags
                     ? tags.map(otherEntity => (
                         <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
+                          {otherEntity.name}
                         </option>
                       ))
                     : null}
                 </AvInput>
               </AvGroup>
               <AvGroup>
-                <Label for="property-category">Category</Label>
+                <Label for="property-category">Chủ đề</Label>
                 <AvInput
                   id="property-category"
                   type="select"
@@ -235,7 +235,7 @@ export const PropertyUpdate = (props: IPropertyUpdateProps) => {
                   {categories
                     ? categories.map(otherEntity => (
                         <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
+                          {otherEntity.name}
                         </option>
                       ))
                     : null}
@@ -244,12 +244,12 @@ export const PropertyUpdate = (props: IPropertyUpdateProps) => {
               <Button tag={Link} id="cancel-save" to="/property" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
-                <span className="d-none d-md-inline">Back</span>
+                <span className="d-none d-md-inline">Trở về</span>
               </Button>
               &nbsp;
               <Button color="primary" id="save-entity" type="submit" disabled={updating}>
                 <FontAwesomeIcon icon="save" />
-                &nbsp; Save
+                &nbsp; Lưu
               </Button>
             </AvForm>
           )}

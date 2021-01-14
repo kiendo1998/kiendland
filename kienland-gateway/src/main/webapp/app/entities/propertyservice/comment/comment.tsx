@@ -68,10 +68,10 @@ export const Comment = (props: ICommentProps) => {
   return (
     <div>
       <h2 id="comment-heading">
-        Quản lý bình luận
+        Bình luận
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
-          &nbsp; Thêm bình luận
+          &nbsp; Tạo bình luận mới
         </Link>
       </h2>
       <MDBCol md="6">
@@ -91,6 +91,12 @@ export const Comment = (props: ICommentProps) => {
                 <th className="hand" onClick={sort('type')}>
                   Kiểu <FontAwesomeIcon icon="sort" />
                 </th>
+                <th>
+                  Bất động sản <FontAwesomeIcon icon="sort" />
+                </th>
+                <th>
+                  Tin tức <FontAwesomeIcon icon="sort" />
+                </th>
                 <th />
               </tr>
             </thead>
@@ -104,6 +110,8 @@ export const Comment = (props: ICommentProps) => {
                   </td>
                   <td>{comment.content}</td>
                   <td>{comment.type}</td>
+                  <td>{comment.property ? <Link to={`property/${comment.property.id}`}>{comment.property.id}</Link> : ''}</td>
+                  <td>{comment.news ? <Link to={`news/${comment.news.id}`}>{comment.news.id}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${comment.id}`} color="info" size="sm">

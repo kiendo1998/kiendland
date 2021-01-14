@@ -90,7 +90,7 @@ export const Property = (props: IPropertyProps) => {
             <div className="card">
               <div className="card-image">
 
-                <span className="card-image-bg"></span>
+                <span className="card-image-bg" style={{'backgroundImage': `url(${"../../../content/images/"+property.titleImage})`}}></span>
                 <a className="btn-floating halfway-fab waves-effect waves-light indigo"><i
                   className="small material-icons">star</i></a>
               </div>

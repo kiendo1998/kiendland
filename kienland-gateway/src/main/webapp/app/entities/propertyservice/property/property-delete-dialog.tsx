@@ -33,16 +33,16 @@ export const PropertyDeleteDialog = (props: IPropertyDeleteDialogProps) => {
   const { propertyEntity } = props;
   return (
     <Modal isOpen toggle={handleClose}>
-      <ModalHeader toggle={handleClose}>Confirm delete operation</ModalHeader>
-      <ModalBody id="kienlandgatewayApp.propertyserviceProperty.delete.question">Are you sure you want to delete this Property?</ModalBody>
+      <ModalHeader toggle={handleClose}>Xác nhận xóa</ModalHeader>
+      <ModalBody id="kienlandgatewayApp.propertyserviceProperty.delete.question">Bạn có chắc muốn xóa bất động sản này không?</ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={handleClose}>
           <FontAwesomeIcon icon="ban" />
-          &nbsp; Cancel
+          &nbsp; Hủy
         </Button>
         <Button id="jhi-confirm-delete-property" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
-          &nbsp; Delete
+          &nbsp; Xóa
         </Button>
       </ModalFooter>
     </Modal>

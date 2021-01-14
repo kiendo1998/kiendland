@@ -1,5 +1,6 @@
 package com.kiendland.propertyservice.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -25,6 +26,14 @@ public class Comment implements Serializable {
 
     @Column(name = "type")
     private String type;
+
+    @ManyToOne
+    @JsonIgnoreProperties(value = "comments", allowSetters = true)
+    private Property property;
+
+    @ManyToOne
+    @JsonIgnoreProperties(value = "comments", allowSetters = true)
+    private News news;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -59,6 +68,32 @@ public class Comment implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Property getProperty() {
+        return property;
+    }
+
+    public Comment property(Property property) {
+        this.property = property;
+        return this;
+    }
+
+    public void setProperty(Property property) {
+        this.property = property;
+    }
+
+    public News getNews() {
+        return news;
+    }
+
+    public Comment news(News news) {
+        this.news = news;
+        return this;
+    }
+
+    public void setNews(News news) {
+        this.news = news;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

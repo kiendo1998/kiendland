@@ -33,7 +33,7 @@ export const CommentDeleteDialog = (props: ICommentDeleteDialogProps) => {
   const { commentEntity } = props;
   return (
     <Modal isOpen toggle={handleClose}>
-      <ModalHeader toggle={handleClose}>Xác nhận hoạt động xóa</ModalHeader>
+      <ModalHeader toggle={handleClose}>Xác nhận xóa</ModalHeader>
       <ModalBody id="kienlandgatewayApp.propertyserviceComment.delete.question">Bạn có chắc muốn xóa bình luận này không?</ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={handleClose}>

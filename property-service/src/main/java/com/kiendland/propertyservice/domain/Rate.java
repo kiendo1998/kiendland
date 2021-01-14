@@ -1,5 +1,6 @@
 package com.kiendland.propertyservice.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -24,6 +25,10 @@ public class Rate implements Serializable {
     @Column(name = "rate_point")
     private Integer ratePoint;
 
+    @ManyToOne
+    @JsonIgnoreProperties(value = "rates", allowSetters = true)
+    private Property property;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -44,6 +49,19 @@ public class Rate implements Serializable {
 
     public void setRatePoint(Integer ratePoint) {
         this.ratePoint = ratePoint;
+    }
+
+    public Property getProperty() {
+        return property;
+    }
+
+    public Rate property(Property property) {
+        this.property = property;
+        return this;
+    }
+
+    public void setProperty(Property property) {
+        this.property = property;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

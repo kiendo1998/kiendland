@@ -61,7 +61,7 @@ export const TagUpdate = (props: ITagUpdateProps) => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="kienlandgatewayApp.propertyserviceTag.home.createOrEditLabel">Create or edit a Tag</h2>
+          <h2 id="kienlandgatewayApp.propertyserviceTag.home.createOrEditLabel">Tạo hay sửa tag</h2>
         </Col>
       </Row>
       <Row className="justify-content-center">
@@ -78,7 +78,7 @@ export const TagUpdate = (props: ITagUpdateProps) => {
               ) : null}
               <AvGroup>
                 <Label id="nameLabel" for="tag-name">
-                  Name
+                  Tên
                 </Label>
                 <AvField
                   id="tag-name"
@@ -92,12 +92,12 @@ export const TagUpdate = (props: ITagUpdateProps) => {
               <Button tag={Link} id="cancel-save" to="/tag" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
-                <span className="d-none d-md-inline">Back</span>
+                <span className="d-none d-md-inline">Trở về</span>
               </Button>
               &nbsp;
               <Button color="primary" id="save-entity" type="submit" disabled={updating}>
                 <FontAwesomeIcon icon="save" />
-                &nbsp; Save
+                &nbsp; Lưu
               </Button>
             </AvForm>
           )}

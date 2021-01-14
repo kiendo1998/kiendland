@@ -33,7 +33,7 @@ export const RateDeleteDialog = (props: IRateDeleteDialogProps) => {
   const { rateEntity } = props;
   return (
     <Modal isOpen toggle={handleClose}>
-      <ModalHeader toggle={handleClose}>Xác nhận hoạt động xóa</ModalHeader>
+      <ModalHeader toggle={handleClose}>Xác nhận xóa</ModalHeader>
       <ModalBody id="kienlandgatewayApp.propertyserviceRate.delete.question">Bạn có chắc muốn xóa đánh giá này không?</ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={handleClose}>

@@ -6,7 +6,7 @@
       "relationshipName": "tag",
       "otherEntityName": "tag",
       "relationshipType": "many-to-many",
-      "otherEntityField": "id",
+      "otherEntityField": "name",
       "ownerSide": true,
       "otherEntityRelationshipName": "property"
     },
@@ -14,7 +14,7 @@
       "relationshipName": "category",
       "otherEntityName": "category",
       "relationshipType": "many-to-many",
-      "otherEntityField": "id",
+      "otherEntityField": "name",
       "ownerSide": true,
       "otherEntityRelationshipName": "property"
     }

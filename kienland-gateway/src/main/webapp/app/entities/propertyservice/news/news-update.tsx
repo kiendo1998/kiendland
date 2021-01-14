@@ -67,7 +67,7 @@ export const NewsUpdate = (props: INewsUpdateProps) => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="kienlandgatewayApp.propertyserviceNews.home.createOrEditLabel">Create or edit a News</h2>
+          <h2 id="kienlandgatewayApp.propertyserviceNews.home.createOrEditLabel">Tạo hoặc sửa tin tức</h2>
         </Col>
       </Row>
       <Row className="justify-content-center">
@@ -84,47 +84,47 @@ export const NewsUpdate = (props: INewsUpdateProps) => {
               ) : null}
               <AvGroup>
                 <Label id="titleLabel" for="news-title">
-                  Title
+                  Tiêu đề
                 </Label>
                 <AvField
                   id="news-title"
                   type="text"
                   name="title"
                   validate={{
-                    required: { value: true, errorMessage: 'This field is required.' },
+                    required: { value: true, errorMessage: 'Đây là trường bắt buộc.' },
                   }}
                 />
               </AvGroup>
               <AvGroup>
                 <Label id="contentLabel" for="news-content">
-                  Content
+                  Nội dung
                 </Label>
                 <AvField
                   id="news-content"
                   type="text"
                   name="content"
                   validate={{
-                    required: { value: true, errorMessage: 'This field is required.' },
-                    minLength: { value: 20, errorMessage: 'This field is required to be at least 20 characters.' },
-                    maxLength: { value: 10000, errorMessage: 'This field cannot be longer than 10000 characters.' },
+                    required: { value: true, errorMessage: 'Đây là trường bắt buộc.' },
+                    minLength: { value: 20, errorMessage: 'Trường này yêu cầu ít nhất 20 kí tự.' },
+                    maxLength: { value: 10000, errorMessage: 'Độ dài đã vượt quá 1000 kí tự.' },
                   }}
                 />
               </AvGroup>
               <AvGroup>
                 <Label id="publishDateLabel" for="news-publishDate">
-                  Publish Date
+                  Ngày xuất bản
                 </Label>
                 <AvField id="news-publishDate" type="date" className="form-control" name="publishDate" />
               </AvGroup>
               <AvGroup>
                 <Label id="imagesLabel" for="news-images">
-                  Images
+                  Ảnh
                 </Label>
-                <AvField id="news-images" type="text" name="images" />
+                <AvField id="news-images" type="text" name="images" multiple/>
               </AvGroup>
               <AvGroup>
                 <Label id="titleImageLabel" for="news-titleImage">
-                  Title Image
+                  Ảnh tiêu đề
                 </Label>
                 <AvField id="news-titleImage" type="text" name="titleImage" />
               </AvGroup>
@@ -142,14 +142,14 @@ export const NewsUpdate = (props: INewsUpdateProps) => {
                   {tags
                     ? tags.map(otherEntity => (
                         <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
+                          {otherEntity.name}
                         </option>
                       ))
                     : null}
                 </AvInput>
               </AvGroup>
               <AvGroup>
-                <Label for="news-category">Category</Label>
+                <Label for="news-category">Chủ đề</Label>
                 <AvInput
                   id="news-category"
                   type="select"
@@ -162,7 +162,7 @@ export const NewsUpdate = (props: INewsUpdateProps) => {
                   {categories
                     ? categories.map(otherEntity => (
                         <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
+                          {otherEntity.name}
                         </option>
                       ))
                     : null}
@@ -171,12 +171,12 @@ export const NewsUpdate = (props: INewsUpdateProps) => {
               <Button tag={Link} id="cancel-save" to="/news" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
-                <span className="d-none d-md-inline">Back</span>
+                <span className="d-none d-md-inline">Trở về</span>
               </Button>
               &nbsp;
               <Button color="primary" id="save-entity" type="submit" disabled={updating}>
                 <FontAwesomeIcon icon="save" />
-                &nbsp; Save
+                &nbsp; Lưu
               </Button>
             </AvForm>
           )}

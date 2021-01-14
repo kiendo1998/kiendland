@@ -65,7 +65,7 @@ export const CategoryUpdate = (props: ICategoryUpdateProps) => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="kienlandgatewayApp.propertyserviceCategory.home.createOrEditLabel">Create or edit a Category</h2>
+          <h2 id="kienlandgatewayApp.propertyserviceCategory.home.createOrEditLabel">Tạo hoặc sửa chủ đề</h2>
         </Col>
       </Row>
       <Row className="justify-content-center">
@@ -82,7 +82,7 @@ export const CategoryUpdate = (props: ICategoryUpdateProps) => {
               ) : null}
               <AvGroup>
                 <Label id="nameLabel" for="category-name">
-                  Name
+                  Tên
                 </Label>
                 <AvField
                   id="category-name"
@@ -95,19 +95,19 @@ export const CategoryUpdate = (props: ICategoryUpdateProps) => {
               </AvGroup>
               <AvGroup>
                 <Label id="imageLabel" for="category-image">
-                  Image
+                  Ảnh
                 </Label>
                 <AvField id="category-image" type="text" name="image" />
               </AvGroup>
               <Button tag={Link} id="cancel-save" to="/category" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
-                <span className="d-none d-md-inline">Back</span>
+                <span className="d-none d-md-inline">Trở về</span>
               </Button>
               &nbsp;
               <Button color="primary" id="save-entity" type="submit" disabled={updating}>
                 <FontAwesomeIcon icon="save" />
-                &nbsp; Save
+                &nbsp; Lưu
               </Button>
             </AvForm>
           )}

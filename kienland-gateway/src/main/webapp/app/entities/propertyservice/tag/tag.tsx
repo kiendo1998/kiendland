@@ -11,7 +11,7 @@ import { ITag } from 'app/shared/model/propertyservice/tag.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
-
+import { MDBInput, MDBCol } from "mdbreact";
 export interface ITagProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
 export const Tag = (props: ITagProps) => {
@@ -68,12 +68,15 @@ export const Tag = (props: ITagProps) => {
   return (
     <div>
       <h2 id="tag-heading">
-        Tags
+        Tag
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
-          &nbsp; Create new Tag
+          &nbsp; Tạo mới tag
         </Link>
       </h2>
+      <MDBCol md="6">
+        <MDBInput hint="Tìm kiếm" type="text" containerClass="mt-0" />
+      </MDBCol>
       <div className="table-responsive">
         {tagList && tagList.length > 0 ? (
           <Table responsive>
@@ -83,7 +86,7 @@ export const Tag = (props: ITagProps) => {
                   ID <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('name')}>
-                  Name <FontAwesomeIcon icon="sort" />
+                  Tên tag <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -100,7 +103,7 @@ export const Tag = (props: ITagProps) => {
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${tag.id}`} color="info" size="sm">
-                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
+                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">Xem</span>
                       </Button>
                       <Button
                         tag={Link}
@@ -108,7 +111,7 @@ export const Tag = (props: ITagProps) => {
                         color="primary"
                         size="sm"
                       >
-                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Sửa</span>
                       </Button>
                       <Button
                         tag={Link}
@@ -116,7 +119,7 @@ export const Tag = (props: ITagProps) => {
                         color="danger"
                         size="sm"
                       >
-                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Xóa</span>
                       </Button>
                     </div>
                   </td>
@@ -125,7 +128,7 @@ export const Tag = (props: ITagProps) => {
             </tbody>
           </Table>
         ) : (
-          !loading && <div className="alert alert-warning">No Tags found</div>
+          !loading && <div className="alert alert-warning">Không tìm thấy tag nào</div>
         )}
       </div>
       {props.totalItems ? (

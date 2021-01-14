@@ -1,7 +1,22 @@
 {
   "fluentMethods": true,
   "clientRootFolder": "propertyservice",
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipName": "property",
+      "otherEntityName": "property",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "comment"
+    },
+    {
+      "relationshipName": "news",
+      "otherEntityName": "news",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "comment"
+    }
+  ],
   "fields": [
     {
       "fieldName": "content",

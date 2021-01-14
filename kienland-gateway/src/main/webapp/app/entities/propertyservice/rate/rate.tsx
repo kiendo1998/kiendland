@@ -68,10 +68,10 @@ export const Rate = (props: IRateProps) => {
   return (
     <div>
       <h2 id="rate-heading">
-        Quản lý đánh giá
+        Đánh giá
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
-          &nbsp; Thêm đánh giá
+          &nbsp; Tạo mới đánh giá
         </Link>
       </h2>
       <MDBCol md="6">
@@ -88,6 +88,9 @@ export const Rate = (props: IRateProps) => {
                 <th className="hand" onClick={sort('ratePoint')}>
                   Điểm đánh giá <FontAwesomeIcon icon="sort" />
                 </th>
+                <th>
+                  Bất động sản <FontAwesomeIcon icon="sort" />
+                </th>
                 <th />
               </tr>
             </thead>
@@ -100,6 +103,7 @@ export const Rate = (props: IRateProps) => {
                     </Button>
                   </td>
                   <td>{rate.ratePoint}</td>
+                  <td>{rate.property ? <Link to={`property/${rate.property.id}`}>{rate.property.id}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${rate.id}`} color="info" size="sm">
@@ -128,7 +132,7 @@ export const Rate = (props: IRateProps) => {
             </tbody>
           </Table>
         ) : (
-          !loading && <div className="alert alert-warning">Không tìm thấy đánh giá nào</div>
+          !loading && <div className="alert alert-warning">No Rates found</div>
         )}
       </div>
       {props.totalItems ? (

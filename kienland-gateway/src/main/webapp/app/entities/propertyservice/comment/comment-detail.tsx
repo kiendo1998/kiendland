@@ -22,17 +22,21 @@ export const CommentDetail = (props: ICommentDetailProps) => {
     <Row>
       <Col md="8">
         <h2>
-          Comment [<b>{commentEntity.id}</b>]
+          Bình luận [<b>{commentEntity.id}</b>]
         </h2>
         <dl className="jh-entity-details">
           <dt>
-            <span id="content">Content</span>
+            <span id="content">Nội dung</span>
           </dt>
           <dd>{commentEntity.content}</dd>
           <dt>
-            <span id="type">Type</span>
+            <span id="type">Kiểu</span>
           </dt>
           <dd>{commentEntity.type}</dd>
+          <dt>Bất động sản</dt>
+          <dd>{commentEntity.property ? commentEntity.property.id : ''}</dd>
+          <dt>Tin tức</dt>
+          <dd>{commentEntity.news ? commentEntity.news.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/comment" replace color="info">
           <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

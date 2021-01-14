@@ -11,7 +11,7 @@ import { INews } from 'app/shared/model/propertyservice/news.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
-import {MDBCol, MDBDataTable, MDBInput} from "mdbreact";
+import { MDBInput, MDBCol } from "mdbreact";
 export interface INewsProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
 export const News = (props: INewsProps) => {
@@ -68,10 +68,10 @@ export const News = (props: INewsProps) => {
   return (
     <div>
       <h2 id="news-heading">
-        News
+        Tin tức
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
-          &nbsp; Create new News
+          &nbsp; Tạo tin tức
         </Link>
       </h2>
       <MDBCol md="6">
@@ -86,19 +86,19 @@ export const News = (props: INewsProps) => {
                   ID <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('title')}>
-                  Title <FontAwesomeIcon icon="sort" />
+                  Tiêu đề <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('content')}>
-                  Content <FontAwesomeIcon icon="sort" />
+                  Nội dung <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('publishDate')}>
-                  Publish Date <FontAwesomeIcon icon="sort" />
+                  Ngày xuất bản <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('images')}>
-                  Images <FontAwesomeIcon icon="sort" />
+                  Ảnh <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('titleImage')}>
-                  Title Image <FontAwesomeIcon icon="sort" />
+                  Ảnh tiêu đề <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -112,14 +112,14 @@ export const News = (props: INewsProps) => {
                     </Button>
                   </td>
                   <td>{news.title}</td>
-                  <td>{news.content}</td>
+                  <td>{news.content.substring(0, 120)}</td>
                   <td>{news.publishDate ? <TextFormat type="date" value={news.publishDate} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
                   <td>{news.images}</td>
                   <td>{news.titleImage}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${news.id}`} color="info" size="sm">
-                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
+                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">Xem</span>
                       </Button>
                       <Button
                         tag={Link}
@@ -127,7 +127,7 @@ export const News = (props: INewsProps) => {
                         color="primary"
                         size="sm"
                       >
-                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Sửa</span>
                       </Button>
                       <Button
                         tag={Link}
@@ -135,7 +135,7 @@ export const News = (props: INewsProps) => {
                         color="danger"
                         size="sm"
                       >
-                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Xóa</span>
                       </Button>
                     </div>
                   </td>
@@ -144,7 +144,7 @@ export const News = (props: INewsProps) => {
             </tbody>
           </Table>
         ) : (
-          !loading && <div className="alert alert-warning">No News found</div>
+          !loading && <div className="alert alert-warning">Không tìm thấy tin tức nào</div>
         )}
       </div>
       {props.totalItems ? (

@@ -1,0 +1,45 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="137LTN (generated)" id="1610518475238-1">
+        <createTable tableName="category">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="categoryPK"/>
+            </column>
+            <column name="image" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610518475238-2">
+        <createTable tableName="tag">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="tagPK"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610518475238-3">
+        <addForeignKeyConstraint baseColumnNames="property_id" baseTableName="property_category" constraintName="FK64xhe389ool0enm5m3xmlpyva" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610518475238-4">
+        <addForeignKeyConstraint baseColumnNames="news_id" baseTableName="news_tag" constraintName="FK6t4e6895p5bpxftb9cpa7d9rq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="news" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610518475238-5">
+        <addForeignKeyConstraint baseColumnNames="tag_id" baseTableName="property_tag" constraintName="FK7fgmocdh3rjfs5xvj0kn5qvq4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tag" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610518475238-6">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="property_category" constraintName="FK9lvov4g3rfc94iwbngsysyell" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="category" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610518475238-7">
+        <addForeignKeyConstraint baseColumnNames="news_id" baseTableName="news_category" constraintName="FKb9a07uy7bnouoxefxynleowm9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="news" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610518475238-8">
+        <addForeignKeyConstraint baseColumnNames="tag_id" baseTableName="news_tag" constraintName="FKc8mlwm67bxmmskec8wg4sd09g" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tag" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610518475238-9">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="news_category" constraintName="FKe8kg0ga2881udnvtit2x1diqw" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="category" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

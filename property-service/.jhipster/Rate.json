@@ -1,7 +1,15 @@
 {
   "fluentMethods": true,
   "clientRootFolder": "propertyservice",
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipName": "property",
+      "otherEntityName": "property",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "rate"
+    }
+  ],
   "fields": [
     {
       "fieldName": "ratePoint",

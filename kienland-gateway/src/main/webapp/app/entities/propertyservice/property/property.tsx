@@ -68,10 +68,10 @@ export const Property = (props: IPropertyProps) => {
   return (
     <div>
       <h2 id="property-heading">
-        Properties
+        Bất động sản
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
-          &nbsp; Create new Property
+          &nbsp; Tạo mới bất động sản
         </Link>
       </h2>
       <MDBCol md="6">
@@ -86,52 +86,52 @@ export const Property = (props: IPropertyProps) => {
                   ID <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('title')}>
-                  Title <FontAwesomeIcon icon="sort" />
+                  Tiêu đề <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('price')}>
-                  Price <FontAwesomeIcon icon="sort" />
+                  Giá <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('featured')}>
-                  Featured <FontAwesomeIcon icon="sort" />
+                  Nổi bật <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('purpose')}>
-                  Purpose <FontAwesomeIcon icon="sort" />
+                  Mục đích <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('type')}>
-                  Type <FontAwesomeIcon icon="sort" />
+                  Kiểu <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('project')}>
-                  Project <FontAwesomeIcon icon="sort" />
+                  Dự án <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('address')}>
-                  Address <FontAwesomeIcon icon="sort" />
+                  Địa chỉ <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('area')}>
-                  Area <FontAwesomeIcon icon="sort" />
+                  Diện tích <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('description')}>
-                  Description <FontAwesomeIcon icon="sort" />
+                  Mô tả <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('latitude')}>
-                  Latitude <FontAwesomeIcon icon="sort" />
+                  Vĩ độ <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('longitude')}>
-                  Longitude <FontAwesomeIcon icon="sort" />
+                  Kinh độ <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('images')}>
-                  Images <FontAwesomeIcon icon="sort" />
+                  Ảnh <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('createBy')}>
-                  Create By <FontAwesomeIcon icon="sort" />
+                  Tạo bởi <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('titleImage')}>
-                  Title Image <FontAwesomeIcon icon="sort" />
+                  Ảnh tiêu đề <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('bedRoom')}>
-                  Bed Room <FontAwesomeIcon icon="sort" />
+                  Số phòng ngủ <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('bathRoom')}>
-                  Bath Room <FontAwesomeIcon icon="sort" />
+                  Số phòng tắm <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -163,7 +163,7 @@ export const Property = (props: IPropertyProps) => {
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${property.id}`} color="info" size="sm">
-                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
+                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">Xem</span>
                       </Button>
                       <Button
                         tag={Link}
@@ -171,7 +171,7 @@ export const Property = (props: IPropertyProps) => {
                         color="primary"
                         size="sm"
                       >
-                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Sửa</span>
                       </Button>
                       <Button
                         tag={Link}
@@ -179,7 +179,7 @@ export const Property = (props: IPropertyProps) => {
                         color="danger"
                         size="sm"
                       >
-                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Xóa</span>
                       </Button>
                     </div>
                   </td>
@@ -188,7 +188,7 @@ export const Property = (props: IPropertyProps) => {
             </tbody>
           </Table>
         ) : (
-          !loading && <div className="alert alert-warning">No Properties found</div>
+          !loading && <div className="alert alert-warning">Không tìm thấy bất động sản nào</div>
         )}
       </div>
       {props.totalItems ? (

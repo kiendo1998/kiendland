@@ -90,7 +90,7 @@ export const News = (props: INewsProps) => {
                   <div>
                     <div className="card-content">
                       <div className="card-image blog-content-image">
-                        <img src={require('../../../content/images/slide3.jpg').default}/>
+                        <img src={"../../../content/images/"+news.titleImage}/>
                       </div>
                       <span className="card-title">
                         <a href={`${match.url}/../../news/${news.id}`}>{news.title}</a>
@@ -125,11 +125,6 @@ export const News = (props: INewsProps) => {
                       </a>
                     </div>
                   </div>
-                </div>
-
-
-                <div className="m-t-30 m-b-60 center">
-                  ngày tháng
                 </div>
 
               </div>

@@ -31,6 +31,10 @@ import { faCloud } from '@fortawesome/free-solid-svg-icons/faCloud';
 import {faAddressCard} from '@fortawesome/free-solid-svg-icons/faAddressCard'
 import {faBuilding} from '@fortawesome/free-solid-svg-icons/faBuilding'
 import {faNewspaper} from '@fortawesome/free-solid-svg-icons/faNewspaper'
+import {faStar} from '@fortawesome/free-solid-svg-icons/faStar'
+import {faTags} from '@fortawesome/free-solid-svg-icons/faTags'
+import {faListAlt} from '@fortawesome/free-solid-svg-icons/faListAlt'
+import {faComments} from '@fortawesome/free-solid-svg-icons/faComments'
 import { faHandSpock } from '@fortawesome/free-solid-svg-icons/faHandSpock';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
@@ -69,6 +73,10 @@ export const loadIcons = () => {
     faHandSpock,
     faAddressCard,
     faBuilding,
-    faNewspaper
+    faNewspaper,
+    faStar,
+    faTags,
+    faListAlt,
+    faComments
   );
 };

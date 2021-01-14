@@ -178,14 +178,14 @@ export const Home = (props: IHomeProp) => {
                     <div className="card-image">
                       {/*  vung chua image va feature star*/}
                       <span className="card-image-bg"
-                            style={{'backgroundImage': `url(${slideImages[2]})`}}></span>
+                            style={{'backgroundImage': `url(${"../../../content/images/"+property.titleImage})`}}></span>
                       <a className="btn-floating halfway-fab waves-effect waves-light indigo" title="Featured"><i
                         className="small material-icons">star</i></a>
                     </div>
                     <div className="card-content property-content">
                       {/*  noi dung property*/}
                       <a href={`${match.url}/${property.id}`}>
-                        {property.title}
+                        <span className="card-title tooltipped" data-position="bottom">{property.title.substring(0, 18)}</span>
                       </a>
                       <div className="address">
                         <i className="small material-icons left">location_city</i>
@@ -246,12 +246,12 @@ export const Home = (props: IHomeProp) => {
                   <div className="card">
                     <div className="card-image">
                                             <span className="card-image-bg"
-                                                  style={{'backgroundImage': `url(${slideImages[2]})`}}></span>
+                                                  style={{'backgroundImage': `url(${"../../../content/images/"+news.titleImage})`}}></span>
                     </div>
                     <div className="card-content">
                       <span className="card-title tooltipped" data-position="bottom" data-tooltip="{{$post->title}}">
                         <a href={`${match.url}/${news.id}`}>
-                        {news.title}
+                        {news.title.substring(0, 18)}
                       </a>
                       </span>
 
@@ -299,7 +299,7 @@ export const Home = (props: IHomeProp) => {
                     <img src={require('../../../content/images/jhipster_family_member_0_head-192.png').default}/>
                   </div>
                   <div className="card-content">
-                    <span className="card-title">Sơn Tùng MTP</span>
+                    <span className="card-title">Hoàng Lưu</span>
                     <p>
                       Kienland có dịch vụ tốt nhất thế giới
                     </p>
@@ -310,10 +310,10 @@ export const Home = (props: IHomeProp) => {
                 <div className="card testimonial-card">
                   <span style={{height: 20, display: 'block'}}></span>
                   <div className="card-image testimonial-image">
-                    <img src={require('../../../content/images/slide4.jpg').default}/>
+                    <img src={require('../../../content/images/phuong.jpg').default}/>
                   </div>
                   <div className="card-content">
-                    <span className="card-title">Sơn Tùng MTP</span>
+                    <span className="card-title">Phương Hoàng</span>
                     <p>
                       Kienland có dịch vụ tốt nhất thế giới
                     </p>
@@ -324,10 +324,10 @@ export const Home = (props: IHomeProp) => {
                 <div className="card testimonial-card">
                   <span style={{height: 20, display: 'block'}}></span>
                   <div className="card-image testimonial-image">
-                    <img src={require('../../../content/images/slide4.jpg').default}/>
+                    <img src={require('../../../content/images/kien.jpg').default}/>
                   </div>
                   <div className="card-content">
-                    <span className="card-title">Sơn Tùng MTP</span>
+                    <span className="card-title">Nam Trịnh</span>
                     <p>
                       Kienland có dịch vụ tốt nhất thế giới
                     </p>
@@ -338,10 +338,10 @@ export const Home = (props: IHomeProp) => {
                 <div className="card testimonial-card">
                   <span style={{height: 20, display: 'block'}}></span>
                   <div className="card-image testimonial-image">
-                    <img src={require('../../../content/images/slide4.jpg').default}/>
+                    <img src={require('../../../content/images/hung.jpg').default}/>
                   </div>
                   <div className="card-content">
-                    <span className="card-title">Sơn Tùng MTP</span>
+                    <span className="card-title">Hùng Hoàng Phi</span>
                     <p>
                       Kienland có dịch vụ tốt nhất thế giới
                     </p>
@@ -352,10 +352,10 @@ export const Home = (props: IHomeProp) => {
                 <div className="card testimonial-card">
                   <span style={{height: 20, display: 'block'}}></span>
                   <div className="card-image testimonial-image">
-                    <img src={require('../../../content/images/slide4.jpg').default}/>
+                    <img src={require('../../../content/images/son.jpg').default}/>
                   </div>
                   <div className="card-content">
-                    <span className="card-title">Sơn Tùng MTP</span>
+                    <span className="card-title">Sơn Mai</span>
                     <p>
                       Kienland có dịch vụ tốt nhất thế giới
                     </p>
@@ -366,10 +366,10 @@ export const Home = (props: IHomeProp) => {
                 <div className="card testimonial-card">
                   <span style={{height: 20, display: 'block'}}></span>
                   <div className="card-image testimonial-image">
-                    <img src={require('../../../content/images/slide4.jpg').default}/>
+                    <img src={require('../../../content/images/hoang.jpg').default}/>
                   </div>
                   <div className="card-content">
-                    <span className="card-title">Sơn Tùng MTP</span>
+                    <span className="card-title">Sang Phạm</span>
                     <p>
                       Kienland có dịch vụ tốt nhất thế giới
                     </p>

@@ -26,16 +26,16 @@ export const TagDetail = (props: ITagDetailProps) => {
         </h2>
         <dl className="jh-entity-details">
           <dt>
-            <span id="name">Name</span>
+            <span id="name">Tên</span>
           </dt>
           <dd>{tagEntity.name}</dd>
         </dl>
         <Button tag={Link} to="/tag" replace color="info">
-          <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>
+          <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Trở về</span>
         </Button>
         &nbsp;
         <Button tag={Link} to={`/tag/${tagEntity.id}/edit`} replace color="primary">
-          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Sửa</span>
         </Button>
       </Col>
     </Row>

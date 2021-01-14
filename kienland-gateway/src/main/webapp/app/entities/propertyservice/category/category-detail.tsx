@@ -22,24 +22,24 @@ export const CategoryDetail = (props: ICategoryDetailProps) => {
     <Row>
       <Col md="8">
         <h2>
-          Category [<b>{categoryEntity.id}</b>]
+          Chủ đề [<b>{categoryEntity.id}</b>]
         </h2>
         <dl className="jh-entity-details">
           <dt>
-            <span id="name">Name</span>
+            <span id="name">Tên</span>
           </dt>
           <dd>{categoryEntity.name}</dd>
           <dt>
-            <span id="image">Image</span>
+            <span id="image">Ảnh</span>
           </dt>
           <dd>{categoryEntity.image}</dd>
         </dl>
         <Button tag={Link} to="/category" replace color="info">
-          <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>
+          <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Trở về</span>
         </Button>
         &nbsp;
         <Button tag={Link} to={`/category/${categoryEntity.id}/edit`} replace color="primary">
-          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Sửa</span>
         </Button>
       </Col>
     </Row>

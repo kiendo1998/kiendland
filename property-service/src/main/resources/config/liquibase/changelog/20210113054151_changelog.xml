@@ -1,0 +1,180 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="137LTN (generated)" id="1610516527961-1">
+        <createTable tableName="category">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="categoryPK"/>
+            </column>
+            <column name="image" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-2">
+        <createTable tableName="comment">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="commentPK"/>
+            </column>
+            <column name="content" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-3">
+        <createTable tableName="jhi_persistent_audit_event">
+            <column autoIncrement="true" name="event_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="jhi_persistent_audit_eventPK"/>
+            </column>
+            <column name="event_date" type="datetime(6)"/>
+            <column name="event_type" type="VARCHAR(255)"/>
+            <column name="principal" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-4">
+        <createTable tableName="jhi_persistent_audit_evt_data">
+            <column name="event_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="value" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-5">
+        <createTable tableName="news">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="newsPK"/>
+            </column>
+            <column name="content" type="VARCHAR(10000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="images" type="VARCHAR(255)"/>
+            <column name="publish_date" type="date"/>
+            <column name="title" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title_image" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-6">
+        <createTable tableName="news_category">
+            <column name="news_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="category_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-7">
+        <createTable tableName="news_tag">
+            <column name="news_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="tag_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-8">
+        <createTable tableName="property">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="propertyPK"/>
+            </column>
+            <column name="address" type="VARCHAR(255)"/>
+            <column name="area" type="DOUBLE"/>
+            <column name="bath_room" type="INT"/>
+            <column name="bed_room" type="INT"/>
+            <column name="create_by" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="featured" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="images" type="VARCHAR(255)"/>
+            <column name="latitude" type="VARCHAR(255)"/>
+            <column name="longitude" type="VARCHAR(255)"/>
+            <column name="price" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="project" type="VARCHAR(255)"/>
+            <column name="purpose" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title_image" type="VARCHAR(255)"/>
+            <column name="type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-9">
+        <createTable tableName="property_category">
+            <column name="property_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="category_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-10">
+        <createTable tableName="property_tag">
+            <column name="property_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="tag_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-11">
+        <createTable tableName="rate">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ratePK"/>
+            </column>
+            <column name="rate_point" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-12">
+        <createTable tableName="tag">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="tagPK"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-13">
+        <addForeignKeyConstraint baseColumnNames="event_id" baseTableName="jhi_persistent_audit_evt_data" constraintName="FK2ehnyx2si4tjd2nt4q7y40v8m" deferrable="false" initiallyDeferred="false" referencedColumnNames="event_id" referencedTableName="jhi_persistent_audit_event" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-14">
+        <addForeignKeyConstraint baseColumnNames="property_id" baseTableName="property_category" constraintName="FK64xhe389ool0enm5m3xmlpyva" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-15">
+        <addForeignKeyConstraint baseColumnNames="news_id" baseTableName="news_tag" constraintName="FK6t4e6895p5bpxftb9cpa7d9rq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="news" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-16">
+        <addForeignKeyConstraint baseColumnNames="tag_id" baseTableName="property_tag" constraintName="FK7fgmocdh3rjfs5xvj0kn5qvq4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tag" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-17">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="property_category" constraintName="FK9lvov4g3rfc94iwbngsysyell" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="category" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-18">
+        <addForeignKeyConstraint baseColumnNames="news_id" baseTableName="news_category" constraintName="FKb9a07uy7bnouoxefxynleowm9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="news" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-19">
+        <addForeignKeyConstraint baseColumnNames="tag_id" baseTableName="news_tag" constraintName="FKc8mlwm67bxmmskec8wg4sd09g" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tag" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-20">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="news_category" constraintName="FKe8kg0ga2881udnvtit2x1diqw" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="category" validate="true"/>
+    </changeSet>
+    <changeSet author="137LTN (generated)" id="1610516527961-21">
+        <addForeignKeyConstraint baseColumnNames="property_id" baseTableName="property_tag" constraintName="FKt9067dbwo7enxb061i9ye9pt6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

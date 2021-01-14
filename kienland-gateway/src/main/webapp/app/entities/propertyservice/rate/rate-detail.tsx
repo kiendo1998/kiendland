@@ -22,20 +22,22 @@ export const RateDetail = (props: IRateDetailProps) => {
     <Row>
       <Col md="8">
         <h2>
-          Rate [<b>{rateEntity.id}</b>]
+          Đánh giá [<b>{rateEntity.id}</b>]
         </h2>
         <dl className="jh-entity-details">
           <dt>
-            <span id="ratePoint">Rate Point</span>
+            <span id="ratePoint">Điểm đánh giá</span>
           </dt>
           <dd>{rateEntity.ratePoint}</dd>
+          <dt>Bất động sản</dt>
+          <dd>{rateEntity.property ? rateEntity.property.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/rate" replace color="info">
-          <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>
+          <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Trở về</span>
         </Button>
         &nbsp;
         <Button tag={Link} to={`/rate/${rateEntity.id}/edit`} replace color="primary">
-          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Sửa</span>
         </Button>
       </Col>
     </Row>
