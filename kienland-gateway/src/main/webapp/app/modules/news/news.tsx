@@ -106,14 +106,28 @@ export const News = (props: INewsProps) => {
                         <i className="material-icons">watch_later</i>
                         <span>{news.publishDate}</span>
                       </a>
-                      <a href="{{ route('blog.categories',$category->slug) }}" className="btn-flat">
-                        <i className="material-icons">folder</i>
-                        <span>list category</span>
-                      </a>
-                      <a href="{{ route('blog.tags',$tag->slug) }}" className="btn-flat">
-                        <i className="material-icons">label</i>
-                        <span>list tag</span>
-                      </a>
+                      {news.categories
+                        ? news.categories.map((val, j) => (
+                            <span key={val.id}>
+                              <a href="{{ route('blog.categories',$category->slug) }}" className="btn-flat">
+                                <i className="material-icons">folder</i>
+                                <span>{val.name}</span>
+                              </a>
+                              {news.categories && j === news.categories.length - 1 ? '' : ', '}
+                            </span>
+                          ))
+                        : null}
+                      {news.tags
+                        ? news.tags.map((val, j) => (
+                            <span key={val.id}>
+                              <a href="{{ route('blog.tags',$tag->slug) }}" className="btn-flat">
+                                <i className="material-icons">label</i>
+                                <span>{val.name}</span>
+                              </a>
+                              {news.tags && j === news.tags.length - 1 ? '' : ', '}
+                            </span>
+                          ))
+                        : null}
 
                       <a href="{{ route('blog.show',$post->slug) . '#comments' }}" className="btn-flat">
                         <i className="material-icons">comment</i>

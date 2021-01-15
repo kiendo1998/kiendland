@@ -10,6 +10,7 @@ import { getEntity } from './news.reducer';
 import { INews } from 'app/shared/model/propertyservice/news.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { FacebookShareButton, TwitterShareButton, FacebookIcon, TwitterIcon } from 'react-share';
+import { FacebookProvider, Comments } from 'react-facebook';
 export interface INewsDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const NewsDetail = (props: INewsDetailProps) => {
@@ -20,6 +21,7 @@ export const NewsDetail = (props: INewsDetailProps) => {
   const { newsEntity } = props;
   return (
     <section className="section">
+      Chia sẻ:{' '}
       <FacebookShareButton url={"https://facebook.com"} quote={"Kienland là website bán bất động sản lớn nhất Việt Nam"} className="share">
         <FacebookIcon size={32} round={true}/>
       </FacebookShareButton>
@@ -77,11 +79,9 @@ export const NewsDetail = (props: INewsDetailProps) => {
 
             </div>
 
-            <div className="card" id="comments">
-              <div className="p-15 grey lighten-4">
-                <h5 className="m-0">7 Bình luận</h5>
-              </div>
-            </div>
+            <FacebookProvider appId="123456789">
+              <Comments width={`100%`} href={`https://facebook.com/kienland/news/${newsEntity.id}`} />
+            </FacebookProvider>
 
           </div>
         </div>

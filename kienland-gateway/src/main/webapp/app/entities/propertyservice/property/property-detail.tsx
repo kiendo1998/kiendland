@@ -11,7 +11,7 @@ import {IProperty} from 'app/shared/model/propertyservice/property.model';
 import {APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT} from 'app/config/constants';
 import {FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton} from "react-share";
 import { FacebookProvider, Comments } from 'react-facebook';
-
+import GoogleMapReact from 'google-map-react';
 export interface IPropertyDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {
 }
 
@@ -20,7 +20,7 @@ export const PropertyDetail = (props: IPropertyDetailProps) => {
     props.getEntity(props.match.params.id);
   }, []);
 
-  const {propertyEntity} = props;
+  const {propertyEntity, match} = props;
   let feature
   if (propertyEntity.featured) {
     feature = <a className="btn-floating btn-small disabled"><i className="material-icons">star</i></a>
@@ -29,6 +29,7 @@ export const PropertyDetail = (props: IPropertyDetailProps) => {
   }
   return (
   <section className="section">
+    Chia sẻ:{' '}
     <FacebookShareButton url={"https://facebook.com"} quote={"Kienland là website bán bất động sản lớn nhất Việt Nam"} className="share">
       <FacebookIcon size={32} round={true}/>
     </FacebookShareButton>
@@ -65,6 +66,14 @@ export const PropertyDetail = (props: IPropertyDetailProps) => {
       <div className="row">
 
         <div className="col s12 m8">
+          <div className="single-slider">
+            <img src={"../../../../content/images/"+propertyEntity.images} alt="{{$property->title}}"
+                 className="imgresponsive"/>
+          </div>
+          <div className="single-image">
+            <img src={"../../../../content/images/"+propertyEntity.titleImage} alt="{{$property->title}}"
+                 className="imgresponsive"/>
+          </div>
           <div className="single-description p-15 m-b-15 border2 border-top-0">
             {propertyEntity.description}
           </div>
@@ -89,9 +98,10 @@ export const PropertyDetail = (props: IPropertyDetailProps) => {
           </div>
         </div>
       </div>
+
     </div>
     <FacebookProvider appId="123456789">
-      <Comments href="http://www.facebook.com" />
+      <Comments width={`100%`} href={`https://facebook.com/kienland/property/${propertyEntity.id}`} />
     </FacebookProvider>
   </section>
 
