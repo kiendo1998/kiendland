@@ -33,6 +33,7 @@
     "react-share": "^4.3.1",
     "react-slick": "^0.27.13",
     "react-slideshow-image": "^3.4.3",
+    "react-star-ratings": "^2.3.0",
     "react-toastify": "5.5.0",
     "react-transition-group": "4.3.0",
     "reactstrap": "8.4.1",
@@ -48,6 +49,7 @@
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "1.0.13-4.3.1",
     "@types/enzyme": "3.10.7",
+    "@types/googlemaps": "^3.43.2",
     "@types/jest": "25.2.1",
     "@types/lodash": "4.14.150",
     "@types/node": "13.13.4",

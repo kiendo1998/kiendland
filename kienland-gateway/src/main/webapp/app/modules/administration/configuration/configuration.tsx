@@ -40,8 +40,8 @@ export const ConfigurationPage = (props: IConfigurationPageProps) => {
 
   return (
     <div>
-      <h2 id="configuration-page-heading">Configuration</h2>
-      <span>Filter</span> <Input type="search" value={filter} onChange={changeFilter} name="search" id="search" />
+      <h2 id="configuration-page-heading">Cấu hình</h2>
+      <span>Tìm kiếm</span> <Input type="search" value={filter} onChange={changeFilter} name="search" id="search" />
       <label>Spring configuration</label>
       <Table className="table table-striped table-bordered table-responsive d-table">
         <thead>

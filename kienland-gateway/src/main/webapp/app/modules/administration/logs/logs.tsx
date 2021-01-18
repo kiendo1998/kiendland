@@ -33,7 +33,7 @@ export const LogsPage = (props: ILogsPageProps) => {
   return (
     <div>
       <h2 id="logs-page-heading">Logs</h2>
-      <p>There are {loggers.length.toString()} loggers.</p>
+      <p>Có {loggers.length.toString()} log trong ứng hệ thống</p>
 
       <span>Filter</span>
       <input type="text" value={filter} onChange={changeFilter} className="form-control" disabled={isFetching} />

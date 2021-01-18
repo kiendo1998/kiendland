@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.scss";
+import GoogleMapReact from 'google-map-react';
 import MenuItem from "app/shared/layout/menus/menu-item";
 
 function Footer() {
@@ -13,8 +14,14 @@ function Footer() {
           </div>
           {/*bat dong san gan day*/}
           <div className="col m6 s12">
-            <h5 className="white-text uppercase">Bất động sản gần đây</h5>
-            <ul className="collection border0">
+            <h5 className="white-text uppercase">Bản đồ</h5>
+            <ul className="collection border0" style={{ height: '30vh', width: '100%' }}>
+              <GoogleMapReact
+                bootstrapURLKeys={{ key: "AIzaSyBRLaJEjRudGCuEi1_pqC4n3hpVHIyJJZA" }}
+                defaultCenter={{lat: 21.015998, lng: 105.579208}}
+                defaultZoom={11}
+              >
+              </GoogleMapReact>
             </ul>
           </div>
           <div className="col m2 s12">

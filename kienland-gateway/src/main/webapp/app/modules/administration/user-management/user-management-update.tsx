@@ -46,7 +46,7 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h1>Create or edit a User</h1>
+          <h1>Thêm hoặc sửa người dùng</h1>
         </Col>
       </Row>
       <Row className="justify-content-center">
@@ -62,7 +62,7 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
                 </AvGroup>
               ) : null}
               <AvGroup>
-                <Label for="login">Login</Label>
+                <Label for="login">Username</Label>
                 <AvField
                   type="text"
                   className="form-control"
@@ -89,7 +89,7 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
                 />
               </AvGroup>
               <AvGroup>
-                <Label for="firstName">First Name</Label>
+                <Label for="firstName">Tên</Label>
                 <AvField
                   type="text"
                   className="form-control"
@@ -104,7 +104,7 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
                 />
               </AvGroup>
               <AvGroup>
-                <Label for="lastName">Last Name</Label>
+                <Label for="lastName">Họ</Label>
                 <AvField
                   type="text"
                   className="form-control"
@@ -123,7 +123,7 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
                 <AvField
                   name="email"
                   label="Email"
-                  placeholder={'Your email'}
+                  placeholder={'Email của bạn'}
                   type="email"
                   validate={{
                     required: {
@@ -151,7 +151,7 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
                 </Label>
               </AvGroup>
               <AvGroup>
-                <Label for="authorities">Profiles</Label>
+                <Label for="authorities">Quyền</Label>
                 <AvInput type="select" className="form-control" name="authorities" value={user.authorities} multiple>
                   {roles.map(role => (
                     <option value={role} key={role}>
@@ -163,12 +163,12 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
               <Button tag={Link} to="/admin/user-management" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
-                <span className="d-none d-md-inline">Back</span>
+                <span className="d-none d-md-inline">Trở về</span>
               </Button>
               &nbsp;
               <Button color="primary" type="submit" disabled={isInvalid || updating}>
                 <FontAwesomeIcon icon="save" />
-                &nbsp; Save
+                &nbsp; Lưu
               </Button>
             </AvForm>
           )}

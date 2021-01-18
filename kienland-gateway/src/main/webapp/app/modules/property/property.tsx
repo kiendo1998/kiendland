@@ -9,7 +9,7 @@ import {overridePaginationStateWithQueryParams} from "app/shared/util/entity-uti
 import {ITEMS_PER_PAGE} from "app/shared/util/pagination.constants";
 import {IRootState} from "app/shared/reducers";
 import {getEntities} from "app/entities/propertyservice/property/property.reducer";
-
+import StarRatings from 'react-star-ratings';
 export interface IPropertyProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {
 }
 
@@ -77,7 +77,7 @@ export const Property = (props: IPropertyProps) => {
             <div className="col s12 m3">
               <a href="linktoproject">
                 <div className="city-category">
-                  <span>dự án</span>
+                  <span>Vinhome</span>
                 </div>
               </a>
             </div>
@@ -120,25 +120,31 @@ export const Property = (props: IPropertyProps) => {
 
                 <h5>
                   {property.price}đ
-                  <div className="right" id="propertyrating-{{$property->id}}"></div>
+                  <div className="right">
+                    <div className="right">
+                      <StarRatings
+                        rating={2.403}
+                        starDimension="20px"
+                        starSpacing="3px"
+                        starRatedColor='yellow'
+                        starHoverColor='yellow'
+                      />
+                    </div>
+                  </div>
                 </h5>
               </div>
               <div className="card-action property-action">
                                 <span className="btn-flat">
                                     <i className="material-icons">check_box</i>
-                                    Phòng ngủ: <strong>3</strong>
+                                    Phòng ngủ: <strong>{property.bedRoom}</strong>
                                 </span>
                 <span className="btn-flat">
                                     <i className="material-icons">check_box</i>
-                                    Phòng tắm: <strong>3</strong>
+                                    Phòng tắm: <strong>{property.bathRoom}</strong>
                                 </span>
                 <span className="btn-flat">
                                     <i className="material-icons">check_box</i>
-                                    Diện tích: <strong>1000</strong> Mét vuông
-                                </span>
-                <span className="btn-flat">
-                                    <i className="material-icons">comment</i>
-                                    <strong>5</strong>
+                                    Diện tích: <strong>{property.area}</strong> Mét vuông
                                 </span>
               </div>
             </div>
@@ -148,10 +154,6 @@ export const Property = (props: IPropertyProps) => {
         ) : (
           !loading && <div className="alert alert-warning">không có bất động sản nào</div>
         )}
-        <div className="m-t-30 m-b-60 center">
-          property link
-          {/*{{$properties->links()}}*/}
-        </div>
 
       </div>
     </section>

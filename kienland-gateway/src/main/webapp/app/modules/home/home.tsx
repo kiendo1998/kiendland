@@ -16,7 +16,7 @@ import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-u
 import { ICrudGetAllAction, getSortState, IPaginationBaseState, JhiPagination, JhiItemCount } from 'react-jhipster';
 import { getEntities as getProperty } from '../../entities/propertyservice/property/property.reducer';
 import { getEntities as getNews } from '../../entities/propertyservice/news/news.reducer';
-
+import StarRatings from 'react-star-ratings';
 // import {IProperty} from 'app/shared/model/propertyservice/property.model';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import "slick-carousel/slick/slick.css";
@@ -157,6 +157,53 @@ export const Home = (props: IHomeProp) => {
           </div>
         </Slide>
       </div>
+       {/*SEARCH SECTION */}
+      <section className="indigo darken-2 white-text center">
+        <div className="container">
+          <div className="row m-b-0">
+            <div className="col s12">
+              <form action="{{ route('search')}} " method="GET">
+                <div className="searchbar">
+                  <div className="input-field col-sm-2 left">
+                    <input type="text" name="project" id="autocomplete-input" className="autocomplete custominputbox"
+                           autoComplete="off"/>
+                      <label htmlFor="autocomplete-input">Nhập dự án</label>
+                  </div>
+                  <div className="input-field col-sm-3 left">
+                    <select name="type" className="browser-default">
+                      <option value="" disabled selected>Kiểu Bất Động Sản</option>
+                      <option value="Căn hộ">Căn hộ chung cư</option>
+                      <option value="Nhà đất">Nhà đất</option>
+                    </select>
+                  </div>
+                  <div className="input-field col-sm-2 left">
+                    <select name="purpose" className="browser-default">
+                      <option value="" disabled selected>Mục đích</option>
+                      <option value="Cho thuê">Cho Thuê</option>
+                      <option value="Bán">Bán</option>
+                    </select>
+                  </div>
+                  <div className="input-field col-sm-2 left">
+                    <select name="bedroom" className="browser-default">
+                      <option value="" disabled selected>Số phòng ngủ</option>
+                      <option value="{{$bedroom->bedroom}}">5</option>
+                    </select>
+                  </div>
+                  <div className="input-field col-sm-2 left">
+                    <input type="text" name="maxprice" id="maxprice" className="custominputbox"/>
+                      <label htmlFor="maxprice">Giá tối đa</label>
+                  </div>
+                  <div className="input-field col-sm-1 left">
+                    <button className="btn btnsearch waves-effect waves-light w100" type="submit">
+                      <i className="material-icons">search</i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
       {/*property section*/}
       <section className="section">
         <div className="container">
@@ -201,7 +248,16 @@ export const Home = (props: IHomeProp) => {
                         </span>
                       </div>
                       <h5>
-                        {property.price}đ<div className="right" id="propertyrating-{{$property->id}}"></div>
+                        {property.price}đ
+                        <div className="right">
+                          <StarRatings
+                            rating={2.403}
+                            starDimension="20px"
+                            starSpacing="3px"
+                            starRatedColor='yellow'
+                            starHoverColor='yellow'
+                          />
+                        </div>
                       </h5>
                     </div>
                     <div className="card-action property-action">

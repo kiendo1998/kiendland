@@ -38,11 +38,11 @@ export const HealthPage = (props: IHealthPageProps) => {
 
   return (
     <div>
-      <h2 id="health-page-heading">Health Checks</h2>
+      <h2 id="health-page-heading">Kiểm tra sức khỏe</h2>
       <p>
         <Button onClick={getSystemHealth} color={isFetching ? 'btn btn-danger' : 'btn btn-primary'} disabled={isFetching}>
           <FontAwesomeIcon icon="sync" />
-          &nbsp; Refresh
+          &nbsp; Làm mới
         </Button>
       </p>
       <Row>
@@ -50,9 +50,9 @@ export const HealthPage = (props: IHealthPageProps) => {
           <Table bordered aria-describedby="health-page-heading">
             <thead>
               <tr>
-                <th>Service Name</th>
-                <th>Status</th>
-                <th>Details</th>
+                <th>Tên service</th>
+                <th>Trạng thái</th>
+                <th>Chi tiết</th>
               </tr>
             </thead>
             <tbody>

@@ -64,9 +64,9 @@ export const UserManagement = (props: IUserManagementProps) => {
   return (
     <div>
       <h2 id="user-management-page-heading">
-        Users
+        Quản lý tài khoản
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity">
-          <FontAwesomeIcon icon="plus" /> Create a new user
+          <FontAwesomeIcon icon="plus" /> Thêm người dùng mới
         </Link>
       </h2>
       <Table responsive striped>
@@ -77,7 +77,7 @@ export const UserManagement = (props: IUserManagementProps) => {
               <FontAwesomeIcon icon="sort" />
             </th>
             <th className="hand" onClick={sort('login')}>
-              Login
+              Username
               <FontAwesomeIcon icon="sort" />
             </th>
             <th className="hand" onClick={sort('email')}>
@@ -85,17 +85,17 @@ export const UserManagement = (props: IUserManagementProps) => {
               <FontAwesomeIcon icon="sort" />
             </th>
             <th />
-            <th>Profiles</th>
+            <th>Quyền</th>
             <th className="hand" onClick={sort('createdDate')}>
-              Created Date
+              Ngày tạo
               <FontAwesomeIcon icon="sort" />
             </th>
             <th className="hand" onClick={sort('lastModifiedBy')}>
-              Last Modified By
+              Cập nhật lần cuối bởi
               <FontAwesomeIcon icon="sort" />
             </th>
             <th id="modified-date-sort" className="hand" onClick={sort('lastModifiedDate')}>
-              Last Modified Date
+              Ngày cập nhật cuối
               <FontAwesomeIcon icon="sort" />
             </th>
             <th />

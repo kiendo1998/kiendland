@@ -39,18 +39,18 @@ export const MetricsPage = (props: IMetricsPageProps) => {
 
   return (
     <div>
-      <h2 id="metrics-page-heading">Application Metrics</h2>
+      <h2 id="metrics-page-heading">Các số liệu ứng dụng</h2>
       <p>
         <Button onClick={getMetrics} color={isFetching ? 'btn btn-danger' : 'btn btn-primary'} disabled={isFetching}>
           <FontAwesomeIcon icon="sync" />
-          &nbsp; Refresh
+          &nbsp; Làm mới
         </Button>
       </p>
       <hr />
 
       <Row>
         <Col sm="12">
-          <h3>JVM Metrics</h3>
+          <h3>Số liệu JVM</h3>
           <Row>
             <Col md="4">
               {metrics && metrics.jvm ? <JvmMemory jvmMetrics={metrics.jvm} wholeNumberFormat={APP_WHOLE_NUMBER_FORMAT} /> : ''}

@@ -14,31 +14,38 @@ import { FacebookProvider, Comments } from 'react-facebook';
 import GoogleMapReact from 'google-map-react';
 export interface IPropertyDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {
 }
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 export const PropertyDetail = (props: IPropertyDetailProps) => {
+  const {propertyEntity, match} = props;
   useEffect(() => {
     props.getEntity(props.match.params.id);
   }, []);
-
-  const {propertyEntity, match} = props;
+  const defaultProps = {
+    center: {
+      lat: Number(`${propertyEntity.latitude}`),
+      lng: Number(`${propertyEntity.longitude}`)
+    },
+    zoom: 11
+  };
   let feature
   if (propertyEntity.featured) {
-    feature = <a className="btn-floating btn-small disabled"><i className="material-icons">star</i></a>
+    feature = <a className="btn-floating btn-small"><i className="material-icons">star</i></a>
   } else {
-    feature = <a className="btn-floating btn-small disabled"><i className="material-icons"></i></a>
+    feature = null
   }
   return (
   <section className="section">
     Chia sẻ:{' '}
-    <FacebookShareButton url={"https://facebook.com"} quote={"Kienland là website bán bất động sản lớn nhất Việt Nam"} className="share">
+    <FacebookShareButton url={"https://www.facebook.com/Kienland-102345411796689"} quote={"Kienland là website bán bất động sản lớn nhất Việt Nam"} className="share">
       <FacebookIcon size={32} round={true}/>
     </FacebookShareButton>
-    <TwitterShareButton url={"https://facebook.com"} className="share">
+    <TwitterShareButton url={"https://www.facebook.com/Kienland-102345411796689"} className="share">
       <TwitterIcon size={32} round={true}/>
     </TwitterShareButton>
     <div className="container">
       <div className="row">
-        <div className="col s12 m8">
+        <div className="col s12 m12">
           <div className="single-title">
             <h4 className="single-title">{propertyEntity.title}</h4>
           </div>
@@ -47,32 +54,42 @@ export const PropertyDetail = (props: IPropertyDetailProps) => {
             <i className="small material-icons left">place</i>
             <span className="font-18">{propertyEntity.address}</span>
           </div>
-
+          <div className="address m-b-30">
+            <i className="small material-icons left">check_box</i>
+            <span>
+              {propertyEntity.type}
+            </span>
+          </div>
+          <div className="address m-b-30">
+            <div>
+              <i className="small material-icons left">local_atm</i>
+              <span>{propertyEntity.price}đ</span>
+            </div>
+          </div>
           <div>
             {feature}
-            <span className="btn btn-small disabled b-r-20">Phòng ngủ: {propertyEntity.bedRoom} </span>
-            <span className="btn btn-small disabled b-r-20">Phòng tắm: {propertyEntity.bathRoom} </span>
-            <span className="btn btn-small disabled b-r-20">Diện tích: {propertyEntity.area} m2</span>
+            <span className="btn btn-small b-r-20">Phòng ngủ: {propertyEntity.bedRoom} </span>
+            <span className="btn btn-small b-r-20">Phòng tắm: {propertyEntity.bathRoom} </span>
+            <span className="btn btn-small b-r-20">Diện tích: {propertyEntity.area} m2</span>
+            <span className="btn btn-small b-r-20">Đang: {propertyEntity.purpose}</span>
           </div>
         </div>
-        <div className="col s12 m4">
-          <div>
-            <h4 className="left">{propertyEntity.price}đ</h4>
-            <button type="button"
-                    className="btn btn-small m-t-25 right disabled b-r-20"> Đang {propertyEntity.purpose}</button>
-          </div>
-        </div>
+
+
       </div>
       <div className="row">
 
-        <div className="col s12 m8">
+        <div className="col s12 m12">
           <div className="single-slider">
             <img src={"../../../../content/images/"+propertyEntity.images} alt="{{$property->title}}"
-                 className="imgresponsive"/>
+                 className="imgresponsive1"/>
           </div>
           <div className="single-image">
+            <div className="single-description p-15 m-b-15 border2 border-top-0">
+              Ảnh bất động sản:
+            </div>
             <img src={"../../../../content/images/"+propertyEntity.titleImage} alt="{{$property->title}}"
-                 className="imgresponsive"/>
+                 className="imgresponsive1"/>
           </div>
           <div className="single-description p-15 m-b-15 border2 border-top-0">
             {propertyEntity.description}
@@ -82,26 +99,37 @@ export const PropertyDetail = (props: IPropertyDetailProps) => {
               <h5 className="m-0">Vị trí</h5>
             </div>
             <div className="card-image">
-              <div id="map"></div>
+              <div id="map" style={{ height: '50vh', width: '100%' }}>
+                <GoogleMapReact
+                  bootstrapURLKeys={{ key: "AIzaSyBRLaJEjRudGCuEi1_pqC4n3hpVHIyJJZA" }}
+                  defaultCenter={{lat: 21.015998, lng: 105.579208}}
+                  defaultZoom={defaultProps.zoom}
+                >
+                  <AnyReactComponent
+
+                    text={propertyEntity.title}
+                  />
+                </GoogleMapReact>
+              </div>
             </div>
           </div>
         </div>
-        <div className="col s12 m4">
-          <div className="clearfix">
-            <div>
-              <ul className="collection with-header m-t-0">
-                <li className="collection-header grey lighten-4">
-                  <h5 className="m-0">Liên hệ với nhà môi giới</h5>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        {/*<div className="col s12 m4">*/}
+        {/*  <div className="clearfix">*/}
+        {/*    <div>*/}
+        {/*      <ul className="collection with-header m-t-0">*/}
+        {/*        <li className="collection-header grey lighten-4">*/}
+        {/*          <h5 className="m-0">Liên hệ với nhà môi giới</h5>*/}
+        {/*        </li>*/}
+        {/*      </ul>*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
       </div>
 
     </div>
-    <FacebookProvider appId="123456789">
-      <Comments width={`100%`} href={`https://facebook.com/kienland/property/${propertyEntity.id}`} />
+    <FacebookProvider appId="102345411796689">
+      <Comments width={`100%`} href={`https://facebook.com/property/${propertyEntity.id}&output=embed`} />
     </FacebookProvider>
   </section>
 

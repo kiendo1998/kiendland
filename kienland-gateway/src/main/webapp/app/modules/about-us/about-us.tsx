@@ -3,9 +3,10 @@ import './about-us.scss';
 import React from 'react';
 import {Translate} from 'react-jhipster';
 import {connect} from 'react-redux';
-import {Row, Col, Alert} from 'reactstrap';
+import {Row, Col, Alert, Button} from 'reactstrap';
 import {Link} from 'react-router-dom';
-
+import { AvForm, AvGroup, AvInput, AvField, AvFeedback } from 'availity-reactstrap-validation';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 export type IAboutUsProp = StateProps;
 
 export const AboutUs = (props: IAboutUsProp) => {
@@ -39,6 +40,33 @@ export const AboutUs = (props: IAboutUsProp) => {
               </Alert>
             </div>
           )}
+          <p>Đăng ký nhận tin mới qua email: </p>
+            <AvForm>
+              <AvGroup>
+                <AvField
+                  name="email"
+                  placeholder={'Nhập email của bạn'}
+                  type="email"
+                  validate={{
+                    email: {
+                      errorMessage: 'Your email is invalid.',
+                    },
+                    minLength: {
+                      value: 5,
+                      errorMessage: 'Your email is required to be at least 5 characters.',
+                    },
+                    maxLength: {
+                      value: 254,
+                      errorMessage: 'Your email cannot be longer than 50 characters.',
+                    },
+                  }}
+                />
+              </AvGroup>
+              <Button color="primary" type="submit" >
+                <FontAwesomeIcon icon="paper-plane" />
+                &nbsp; Gửi
+              </Button>
+            </AvForm>
           <p>Mọi thắc mắc, xin vui lòng liên hệ: </p>
 
           <ul>

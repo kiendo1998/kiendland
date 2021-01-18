@@ -8,22 +8,22 @@ import { NavDropdown } from './menu-components';
 const adminMenuItems = (
   <>
     <MenuItem icon="road" to="/admin/gateway">
-      Gateway
+      Quản lý Service
     </MenuItem>
     <MenuItem icon="user" to="/admin/user-management">
-      User management
+      Quản lý tài khoản
     </MenuItem>
     <MenuItem icon="tachometer-alt" to="/admin/metrics">
-      Metrics
+      Số liệu
     </MenuItem>
     <MenuItem icon="heart" to="/admin/health">
-      Health
+      Sức Khỏe
     </MenuItem>
     <MenuItem icon="list" to="/admin/configuration">
-      Configuration
+      Cấu hình
     </MenuItem>
     <MenuItem icon="bell" to="/admin/audits">
-      Audits
+      Lịch sử truy cập
     </MenuItem>
     {/* jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here */}
     <MenuItem icon="tasks" to="/admin/logs">
