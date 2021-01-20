@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Col, Row, Table } from 'reactstrap';
+import { Button, Col,Input, Row, Table } from 'reactstrap';
 import { ICrudGetAllAction, getSortState, IPaginationBaseState, JhiPagination, JhiItemCount } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -15,6 +15,8 @@ import { MDBInput, MDBCol } from "mdbreact";
 export interface IRateProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
 export const Rate = (props: IRateProps) => {
+  const [filter, setFilter] = useState('');
+  const changeFilter = evt => setFilter(evt.target.value);
   const [paginationState, setPaginationState] = useState(
     overridePaginationStateWithQueryParams(getSortState(props.location, ITEMS_PER_PAGE), props.location.search)
   );
@@ -74,9 +76,7 @@ export const Rate = (props: IRateProps) => {
           &nbsp; Tạo mới đánh giá
         </Link>
       </h2>
-      <MDBCol md="6">
-        <MDBInput hint="Tìm kiếm" type="text" containerClass="mt-0" />
-      </MDBCol>
+      <span>Tìm kiếm</span> <Input placeholder="Nhập điểm" type="search" value={filter} onChange={changeFilter} name="search" id="search" />
       <div className="table-responsive">
         {rateList && rateList.length > 0 ? (
           <Table responsive>
@@ -95,7 +95,7 @@ export const Rate = (props: IRateProps) => {
               </tr>
             </thead>
             <tbody>
-              {rateList.map((rate, i) => (
+              {rateList.filter(rate=>rate.ratePoint.toString().includes(`${filter}`)).map((rate, i) => (
                 <tr key={`entity-${i}`}>
                   <td>
                     <Button tag={Link} to={`${match.url}/${rate.id}`} color="link" size="sm">

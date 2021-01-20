@@ -9,7 +9,7 @@ import 'react-slideshow-image/dist/styles.css';
 import { Slide } from 'react-slideshow-image';
 
 import { IRootState } from 'app/shared/reducers';
-
+import isEqual from 'lodash/isEqual';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
@@ -56,6 +56,15 @@ export const Home = (props: IHomeProp) => {
       },
     ],
   };
+  //filter
+  const [filter, setFilter] = useState('');
+  const changeFilter = evt => setFilter(evt.target.value);
+  //price filter
+  const [priceFilter, setPriceFilter] = useState('');
+  const changePriceFilter = evt => setPriceFilter(evt.target.value);
+  //bed filter
+  const [bedFilter, setBedFilter] = useState('');
+  const changeBedFilter = evt => setBedFilter(evt.target.value);
   //list item
   const [paginationState, setPaginationState] = useState(
     overridePaginationStateWithQueryParams(getSortState(props.location, ITEMS_PER_PAGE), props.location.search)
@@ -165,9 +174,8 @@ export const Home = (props: IHomeProp) => {
               <form action="{{ route('search')}} " method="GET">
                 <div className="searchbar">
                   <div className="input-field col-sm-2 left">
-                    <input type="text" name="project" id="autocomplete-input" className="autocomplete custominputbox"
+                    <input placeholder="Nhập dự án" type="text" name="project" value={filter} onChange={changeFilter} id="autocomplete-input" className="autocomplete custominputbox"
                            autoComplete="off"/>
-                      <label htmlFor="autocomplete-input">Nhập dự án</label>
                   </div>
                   <div className="input-field col-sm-3 left">
                     <select name="type" className="browser-default">
@@ -184,19 +192,10 @@ export const Home = (props: IHomeProp) => {
                     </select>
                   </div>
                   <div className="input-field col-sm-2 left">
-                    <select name="bedroom" className="browser-default">
-                      <option value="" disabled selected>Số phòng ngủ</option>
-                      <option value="{{$bedroom->bedroom}}">5</option>
-                    </select>
+                    <input placeholder="Số phòng ngủ" value={bedFilter} onChange={changeBedFilter} type="text" name="maxprice" id="maxprice" className="custominputbox"/>
                   </div>
-                  <div className="input-field col-sm-2 left">
-                    <input type="text" name="maxprice" id="maxprice" className="custominputbox"/>
-                      <label htmlFor="maxprice">Giá tối đa</label>
-                  </div>
-                  <div className="input-field col-sm-1 left">
-                    <button className="btn btnsearch waves-effect waves-light w100" type="submit">
-                      <i className="material-icons">search</i>
-                    </button>
+                  <div className="input-field col-sm-3 left">
+                    <input placeholder="Giá tối đa" value={priceFilter} onChange={changePriceFilter} type="text" name="maxprice" id="maxprice" className="custominputbox"/>
                   </div>
                 </div>
               </form>
@@ -212,7 +211,7 @@ export const Home = (props: IHomeProp) => {
           </div>
           {propertyList && propertyList.length > 0 ? (
             <div className="row">
-              {propertyList.map((property, i) => (
+              {propertyList.filter(property=>property.project.toLowerCase().includes(`${filter}`.toLowerCase())).filter(property=>(property.price<parseFloat(priceFilter)||isNaN(parseFloat(priceFilter)))&&(isEqual(property.bedRoom,parseInt(bedFilter,10))||isNaN(parseInt(bedFilter,10)))).map((property, i) => (
                 <div key={`entity-${i}`} className="col-sm-4">
                   <div className="card">
                     <div className="card-image">

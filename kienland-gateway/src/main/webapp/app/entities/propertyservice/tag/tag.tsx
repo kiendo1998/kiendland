@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Col, Row, Table } from 'reactstrap';
+import { Button, Col,Input, Row, Table } from 'reactstrap';
 import { ICrudGetAllAction, getSortState, IPaginationBaseState, JhiPagination, JhiItemCount } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -15,6 +15,8 @@ import { MDBInput, MDBCol } from "mdbreact";
 export interface ITagProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
 export const Tag = (props: ITagProps) => {
+  const [filter, setFilter] = useState('');
+  const changeFilter = evt => setFilter(evt.target.value);
   const [paginationState, setPaginationState] = useState(
     overridePaginationStateWithQueryParams(getSortState(props.location, ITEMS_PER_PAGE), props.location.search)
   );
@@ -74,9 +76,7 @@ export const Tag = (props: ITagProps) => {
           &nbsp; Tạo mới tag
         </Link>
       </h2>
-      <MDBCol md="6">
-        <MDBInput hint="Tìm kiếm" type="text" containerClass="mt-0" />
-      </MDBCol>
+      <span>Tìm kiếm</span> <Input placeholder="Nhập tên" type="search" value={filter} onChange={changeFilter} name="search" id="search" />
       <div className="table-responsive">
         {tagList && tagList.length > 0 ? (
           <Table responsive>
@@ -92,7 +92,7 @@ export const Tag = (props: ITagProps) => {
               </tr>
             </thead>
             <tbody>
-              {tagList.map((tag, i) => (
+              {tagList.filter(tag=>tag.name.toLowerCase().includes(`${filter}`.toLowerCase())).map((tag, i) => (
                 <tr key={`entity-${i}`}>
                   <td>
                     <Button tag={Link} to={`${match.url}/${tag.id}`} color="link" size="sm">

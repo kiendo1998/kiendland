@@ -112,7 +112,7 @@ export const PropertyUpdate = (props: IPropertyUpdateProps) => {
               </AvGroup>
               <AvGroup check>
                 <Label id="featuredLabel">
-                  <AvInput id="property-featured" type="checkbox" className="form-check-input" name="featured" />
+                  <AvInput style={{opacity:1,pointerEvents:'auto'}} id="property-featured" type="checkbox" className="form-check-input" name="featured" />
                   Nổi bật
                 </Label>
               </AvGroup>

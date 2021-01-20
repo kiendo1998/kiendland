@@ -34,8 +34,18 @@
     "jhiPrefix": "jhi",
     "entitySuffix": "",
     "dtoSuffix": "DTO",
-    "otherModules": [],
+    "otherModules": [
+      {
+        "name": "generator-jhipster-search-filter",
+        "version": "0.1.1"
+      }
+    ],
     "enableTranslation": false,
-    "blueprints": []
+    "blueprints": [
+      {
+        "name": "generator-jhipster-search-filter",
+        "version": "0.1.1"
+      }
+    ]
   }
 }

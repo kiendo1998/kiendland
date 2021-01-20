@@ -12,6 +12,7 @@ import {APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT} from 'app/config/constants';
 import {FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton} from "react-share";
 import { FacebookProvider, Comments } from 'react-facebook';
 import GoogleMapReact from 'google-map-react';
+import StarRatings from 'react-star-ratings';
 export interface IPropertyDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {
 }
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
@@ -64,6 +65,17 @@ export const PropertyDetail = (props: IPropertyDetailProps) => {
             <div>
               <i className="small material-icons left">local_atm</i>
               <span>{propertyEntity.price}đ</span>
+            </div>
+          </div>
+          <div className="address m-b-30">
+            <div>
+              <StarRatings
+                rating={2.403}
+                starDimension="20px"
+                starSpacing="3px"
+                starRatedColor='yellow'
+                starHoverColor='yellow'
+              />
             </div>
           </div>
           <div>

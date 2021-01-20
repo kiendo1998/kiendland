@@ -35,6 +35,10 @@ import category, {
 import comment, {
   CommentState
 } from 'app/entities/propertyservice/comment/comment.reducer';
+// prettier-ignore
+import paypalCompletedPayments, {
+  PaypalCompletedPaymentsState
+} from 'app/entities/paypal-completed-payments/paypal-completed-payments.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 export interface IRootState {
@@ -53,6 +57,7 @@ export interface IRootState {
   readonly tag: TagState;
   readonly category: CategoryState;
   readonly comment: CommentState;
+  readonly paypalCompletedPayments: PaypalCompletedPaymentsState;
   /* jhipster-needle-add-reducer-type - JHipster will add reducer type here */
   readonly loadingBar: any;
 }
@@ -73,6 +78,7 @@ const rootReducer = combineReducers<IRootState>({
   tag,
   category,
   comment,
+  paypalCompletedPayments,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar,
 });

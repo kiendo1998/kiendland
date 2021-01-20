@@ -37,6 +37,7 @@ import {faListAlt} from '@fortawesome/free-solid-svg-icons/faListAlt'
 import {faComments} from '@fortawesome/free-solid-svg-icons/faComments'
 import { faHandSpock } from '@fortawesome/free-solid-svg-icons/faHandSpock';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons/faPaperPlane';
+import { faCreditCard } from '@fortawesome/free-solid-svg-icons/faCreditCard';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 export const loadIcons = () => {
@@ -79,6 +80,7 @@ export const loadIcons = () => {
     faTags,
     faListAlt,
     faComments,
-    faPaperPlane
+    faPaperPlane,
+    faCreditCard
   );
 };

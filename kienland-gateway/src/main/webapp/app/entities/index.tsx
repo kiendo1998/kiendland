@@ -10,6 +10,7 @@ import Rate from './propertyservice/rate';
 import Tag from './propertyservice/tag';
 import Category from './propertyservice/category';
 import Comment from './propertyservice/comment';
+import PaypalCompletedPayments from './paypal-completed-payments';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 const Routes = ({ match }) => (
@@ -22,6 +23,7 @@ const Routes = ({ match }) => (
       <ErrorBoundaryRoute path={`${match.url}tag`} component={Tag} />
       <ErrorBoundaryRoute path={`${match.url}category`} component={Category} />
       <ErrorBoundaryRoute path={`${match.url}comment`} component={Comment} />
+      <ErrorBoundaryRoute path={`${match.url}paypal-completed-payments`} component={PaypalCompletedPayments} />
       {/* jhipster-needle-add-route-path - JHipster will add routes here */}
     </Switch>
   </div>
