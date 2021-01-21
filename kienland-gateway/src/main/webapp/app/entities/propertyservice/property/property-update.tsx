@@ -120,20 +120,31 @@ export const PropertyUpdate = (props: IPropertyUpdateProps) => {
                 <Label id="purposeLabel" for="property-purpose">
                   Mục đích
                 </Label>
-                <AvField
-                  id="property-purpose"
-                  type="text"
-                  name="purpose"
-                  validate={{
-                    required: { value: true, errorMessage: 'Trường này là bắt buộc.' },
-                  }}
-                />
+                {/*<AvField*/}
+                {/*  id="property-purpose"*/}
+                {/*  type="text"*/}
+                {/*  name="purpose"*/}
+                {/*  validate={{*/}
+                {/*    required: { value: true, errorMessage: 'Trường này là bắt buộc.' },*/}
+                {/*  }}*/}
+                {/*/>*/}
+                <AvInput id="property-purpose" type="select" className="form-control" name="purpose" validate={{required: { value: true, errorMessage: 'Trường này là bắt buộc.' },}}>
+                  <option value="" disabled selected>Mục đích</option>
+                  <option value="Bán">Bán</option>
+                  <option value="Cho thuê">Cho thuê</option>
+                </AvInput>
               </AvGroup>
               <AvGroup>
                 <Label id="typeLabel" for="property-type">
                   Kiểu
                 </Label>
-                <AvField id="property-type" type="text" name="type" />
+                {/*<AvField id="property-type" type="text" name="type" />*/}
+                <AvInput id="property-type" type="select" className="form-control" name="type">
+                  <option value="" disabled selected>Kiểu Bất Động Sản</option>
+                  <option value="Căn hộ">Căn hộ chung cư</option>
+                  <option value="Nhà đất">Nhà đất</option>
+                  <option value="Đất nền">Đất nền</option>
+                </AvInput>
               </AvGroup>
               <AvGroup>
                 <Label id="projectLabel" for="property-project">

@@ -23,10 +23,10 @@ export const PaypalCompletedPayments = (props: IPaypalCompletedPaymentsProps) =>
   return (
     <div>
       <h2 id="paypal-completed-payments-heading">
-        Paypal Completed Payments
+        Quản lý thanh toán
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
-          &nbsp; Create new Paypal Completed Payments
+          &nbsp; Tạo thanh toán
         </Link>
       </h2>
       <span>Tìm kiếm</span> <Input placeholder="nhập tên" type="search" value={filter} onChange={changeFilter} name="search" id="search" />
@@ -36,14 +36,14 @@ export const PaypalCompletedPayments = (props: IPaypalCompletedPaymentsProps) =>
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Date</th>
-                <th>Id Payment</th>
-                <th>Currency</th>
-                <th>Amount</th>
+                <th>Ngày</th>
+                <th>Mã thanh toán</th>
+                <th>Loại tiền tệ</th>
+                <th>Số tiền</th>
                 <th>Email</th>
-                <th>Name</th>
-                <th>Status</th>
-                <th>User</th>
+                <th>Tên</th>
+                <th>Trạng thái</th>
+                <th>Người dùng</th>
                 <th />
               </tr>
             </thead>
@@ -70,13 +70,13 @@ export const PaypalCompletedPayments = (props: IPaypalCompletedPaymentsProps) =>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${paypalCompletedPayments.id}`} color="info" size="sm">
-                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
+                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">Xem</span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${paypalCompletedPayments.id}/edit`} color="primary" size="sm">
-                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Sửa</span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${paypalCompletedPayments.id}/delete`} color="danger" size="sm">
-                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Xóa</span>
                       </Button>
                     </div>
                   </td>
@@ -85,7 +85,7 @@ export const PaypalCompletedPayments = (props: IPaypalCompletedPaymentsProps) =>
             </tbody>
           </Table>
         ) : (
-          !loading && <div className="alert alert-warning">No Paypal Completed Payments found</div>
+          !loading && <div className="alert alert-warning">Không tìm thấy thông tin thanh toán</div>
         )}
       </div>
     </div>

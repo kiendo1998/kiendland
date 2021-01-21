@@ -9,6 +9,7 @@ import { AdminMenu, EntitiesMenu, AccountMenu } from 'app/shared/layout/menus';
 import { AboutUs } from 'app/shared/layout/header/header-components';
 import { Property } from 'app/shared/layout/header/header-components';
 import { News } from 'app/shared/layout/header/header-components';
+import { Payment } from 'app/shared/layout/header/header-components';
 import Header from 'app/shared/layout/header/header';
 
 describe('Header', () => {
@@ -114,6 +115,13 @@ describe('Header', () => {
     const navbar = component.find(Navbar);
     const nav = component.find(Nav);
     expect(nav.find(News).length).toEqual(1);
+  });
+  it('Renders Payment component.', () => {
+    const component = wrapper(prodProps);
+    expect(component).toMatchSnapshot();
+    const navbar = component.find(Navbar);
+    const nav = component.find(Nav);
+    expect(nav.find(Payment).length).toEqual(1);
   });
   it('Renders a Header component in prod profile with no logged in User', () => {
     const nav = wrapper(guestProps).find(Nav);

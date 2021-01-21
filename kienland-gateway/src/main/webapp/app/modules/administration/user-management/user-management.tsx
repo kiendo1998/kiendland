@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Table, Row, Badge } from 'reactstrap';
+import { Button, Table,Input, Row, Badge } from 'reactstrap';
 import { TextFormat, JhiPagination, JhiItemCount, getSortState } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -14,6 +14,8 @@ import { IRootState } from 'app/shared/reducers';
 export interface IUserManagementProps extends StateProps, DispatchProps, RouteComponentProps<{}> {}
 
 export const UserManagement = (props: IUserManagementProps) => {
+  const [filter, setFilter] = useState('');
+  const changeFilter = evt => setFilter(evt.target.value);
   const [pagination, setPagination] = useState(
     overridePaginationStateWithQueryParams(getSortState(props.location, ITEMS_PER_PAGE), props.location.search)
   );
@@ -69,6 +71,7 @@ export const UserManagement = (props: IUserManagementProps) => {
           <FontAwesomeIcon icon="plus" /> Thêm người dùng mới
         </Link>
       </h2>
+      <span>Tìm kiếm</span> <Input placeholder="Nhập username" type="search" value={filter} onChange={changeFilter} name="search" id="search" />
       <Table responsive striped>
         <thead>
           <tr>
@@ -102,7 +105,7 @@ export const UserManagement = (props: IUserManagementProps) => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user, i) => (
+          {users.filter(user=>user.login.toLowerCase().includes(`${filter}`.trim().toLowerCase())).map((user, i) => (
             <tr id={user.login} key={`user-${i}`}>
               <td>
                 <Button tag={Link} to={`${match.url}/${user.login}`} color="link" size="sm">

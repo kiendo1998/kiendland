@@ -26,7 +26,7 @@ export const PrivateRouteComponent = ({
       </ErrorBoundary>
     ) : (
       <div className="insufficient-authority">
-        <div className="alert alert-danger">You are not authorized to access this page.</div>
+        <div className="alert alert-danger">Bạn không đủ thẩm quyền để truy cập chức năng này.</div>
       </div>
     );
 

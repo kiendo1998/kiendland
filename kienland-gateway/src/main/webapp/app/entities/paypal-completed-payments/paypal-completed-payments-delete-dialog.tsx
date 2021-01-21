@@ -33,18 +33,18 @@ export const PaypalCompletedPaymentsDeleteDialog = (props: IPaypalCompletedPayme
   const { paypalCompletedPaymentsEntity } = props;
   return (
     <Modal isOpen toggle={handleClose}>
-      <ModalHeader toggle={handleClose}>Confirm delete operation</ModalHeader>
+      <ModalHeader toggle={handleClose}>Xác nhận hoạt động xóa</ModalHeader>
       <ModalBody id="kienlandgatewayApp.paypalCompletedPayments.delete.question">
-        Are you sure you want to delete this PaypalCompletedPayments?
+        Bạn có chắc muốn xóa thông tin thanh toán này không?
       </ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={handleClose}>
           <FontAwesomeIcon icon="ban" />
-          &nbsp; Cancel
+          &nbsp; Hủy
         </Button>
         <Button id="jhi-confirm-delete-paypalCompletedPayments" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
-          &nbsp; Delete
+          &nbsp; Xóa
         </Button>
       </ModalFooter>
     </Modal>

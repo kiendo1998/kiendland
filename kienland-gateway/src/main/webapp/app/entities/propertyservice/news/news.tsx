@@ -104,7 +104,7 @@ export const News = (props: INewsProps) => {
               </tr>
             </thead>
             <tbody>
-              {newsList.filter(news=>news.title.toLowerCase().includes(`${filter}`.toLowerCase())).map((news, i) => (
+              {newsList.filter(news=>news.title.toLowerCase().includes(`${filter}`.trim().toLowerCase())).map((news, i) => (
                 <tr key={`entity-${i}`}>
                   <td>
                     <Button tag={Link} to={`${match.url}/${news.id}`} color="link" size="sm">

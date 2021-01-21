@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import './payment.scss';
+
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col, Label } from 'reactstrap';
@@ -9,21 +10,22 @@ import { IRootState } from 'app/shared/reducers';
 
 import { IUser } from 'app/shared/model/user.model';
 import { getUsers } from 'app/modules/administration/user-management/user-management.reducer';
-import { getEntity, updateEntity, createEntity, reset } from './paypal-completed-payments.reducer';
+import { getEntity, updateEntity, createEntity, reset } from '../../entities/paypal-completed-payments/paypal-completed-payments.reducer';
 import { IPaypalCompletedPayments } from 'app/shared/model/paypal-completed-payments.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
+import {PaypalCompletedPaymentsUpdate} from "app/entities/paypal-completed-payments/paypal-completed-payments-update";
+import React, {useEffect, useState} from "react";
 
-export interface IPaypalCompletedPaymentsUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
-
-export const PaypalCompletedPaymentsUpdate = (props: IPaypalCompletedPaymentsUpdateProps) => {
+export interface IPaymentProp extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
+export const Payment = (props: IPaymentProp) => {
   const [userId, setUserId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
   const { paypalCompletedPaymentsEntity, users, loading, updating } = props;
 
   const handleClose = () => {
-    props.history.push('/paypal-completed-payments');
+    props.history.push('/payment');
   };
 
   useEffect(() => {
@@ -58,7 +60,17 @@ export const PaypalCompletedPaymentsUpdate = (props: IPaypalCompletedPaymentsUpd
       }
     }
   };
-
+  const addPaypalScript=()=> {
+    this.addScript = true;
+    return new Promise((resolve, reject) => {
+      const scripttagElement = document.createElement('script');
+      scripttagElement.src = 'https://www.paypal.com/sdk/js?client-id=sb';
+      // last paypal script (before february 2019)
+      // scripttagElement.src = 'https://www.paypalobjects.com/api/checkout.js';
+      scripttagElement.onload = resolve;
+      document.body.appendChild(scripttagElement);
+    });
+  }
   return (
     <div>
       <Row className="justify-content-center">
@@ -103,7 +115,7 @@ export const PaypalCompletedPaymentsUpdate = (props: IPaypalCompletedPaymentsUpd
                   type="text"
                   name="idPayment"
                   validate={{
-                    required: { value: true, errorMessage: 'This field is required.' },
+                    required: { value: true, errorMessage: 'Đây là trường bắt buộc.' },
                   }}
                 />
               </AvGroup>
@@ -116,7 +128,7 @@ export const PaypalCompletedPaymentsUpdate = (props: IPaypalCompletedPaymentsUpd
                   type="text"
                   name="currency"
                   validate={{
-                    required: { value: true, errorMessage: 'This field is required.' },
+                    required: { value: true, errorMessage: 'Đây là trường bắt buộc.' },
                   }}
                 />
               </AvGroup>
@@ -130,9 +142,9 @@ export const PaypalCompletedPaymentsUpdate = (props: IPaypalCompletedPaymentsUpd
                   className="form-control"
                   name="amount"
                   validate={{
-                    required: { value: true, errorMessage: 'This field is required.' },
-                    min: { value: 0, errorMessage: 'This field should be at least 0.' },
-                    number: { value: true, errorMessage: 'This field should be a number.' },
+                    required: { value: true, errorMessage: 'Đây là trường bắt buộc.' },
+                    min: { value: 0, errorMessage: 'Trường này phải có giá trị ít nhất là 0.' },
+                    number: { value: true, errorMessage: 'Đây là trường số.' },
                   }}
                 />
               </AvGroup>
@@ -145,7 +157,7 @@ export const PaypalCompletedPaymentsUpdate = (props: IPaypalCompletedPaymentsUpd
                   type="text"
                   name="email"
                   validate={{
-                    required: { value: true, errorMessage: 'This field is required.' },
+                    required: { value: true, errorMessage: 'Đây là trường bắt buộc.' },
                   }}
                 />
               </AvGroup>
@@ -158,7 +170,7 @@ export const PaypalCompletedPaymentsUpdate = (props: IPaypalCompletedPaymentsUpd
                   type="text"
                   name="name"
                   validate={{
-                    required: { value: true, errorMessage: 'This field is required.' },
+                    required: { value: true, errorMessage: 'Đây là trường bắt buộc.' },
                   }}
                 />
               </AvGroup>
@@ -171,7 +183,7 @@ export const PaypalCompletedPaymentsUpdate = (props: IPaypalCompletedPaymentsUpd
                   type="text"
                   name="status"
                   validate={{
-                    required: { value: true, errorMessage: 'This field is required.' },
+                    required: { value: true, errorMessage: 'Đây là trường bắt buộc.' },
                   }}
                 />
               </AvGroup>
@@ -181,19 +193,13 @@ export const PaypalCompletedPaymentsUpdate = (props: IPaypalCompletedPaymentsUpd
                   <option value="" key="0" />
                   {users
                     ? users.map(otherEntity => (
-                        <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
-                        </option>
-                      ))
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
                     : null}
                 </AvInput>
               </AvGroup>
-              <Button tag={Link} id="cancel-save" to="/paypal-completed-payments" replace color="info">
-                <FontAwesomeIcon icon="arrow-left" />
-                &nbsp;
-                <span className="d-none d-md-inline">Trở về</span>
-              </Button>
-              &nbsp;
               <Button color="primary" id="save-entity" type="submit" disabled={updating}>
                 <FontAwesomeIcon icon="save" />
                 &nbsp; Lưu
@@ -204,8 +210,7 @@ export const PaypalCompletedPaymentsUpdate = (props: IPaypalCompletedPaymentsUpd
       </Row>
     </div>
   );
-};
-
+}
 const mapStateToProps = (storeState: IRootState) => ({
   users: storeState.userManagement.users,
   paypalCompletedPaymentsEntity: storeState.paypalCompletedPayments.entity,
@@ -225,4 +230,5 @@ const mapDispatchToProps = {
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;
 
-export default connect(mapStateToProps, mapDispatchToProps)(PaypalCompletedPaymentsUpdate);
+export default connect(mapStateToProps, mapDispatchToProps)(Payment);
+

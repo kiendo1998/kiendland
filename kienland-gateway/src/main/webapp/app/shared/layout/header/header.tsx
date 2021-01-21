@@ -12,6 +12,7 @@ import { Home, Brand } from './header-components';
 import { AboutUs } from './header-components';
 import { Property } from './header-components';
 import { News } from './header-components';
+import { Payment } from './header-components';
 import { AdminMenu, EntitiesMenu, AccountMenu } from '../menus';
 
 export interface IHeaderProps {
@@ -49,7 +50,14 @@ const Header = (props: IHeaderProps) => {
             <Property />
             <News />
             <AboutUs />
-            {props.isAuthenticated && <EntitiesMenu />}
+            <Payment />
+            {props.isAuthenticated && <EntitiesMenu
+                isAuthenticated={props.isAuthenticated}
+                isAdmin={props.isAdmin}
+                ribbonEnv={props.ribbonEnv}
+                isInProduction={props.isInProduction}
+                isSwaggerEnabled={props.isSwaggerEnabled}
+            />}
             {props.isAuthenticated && props.isAdmin && <AdminMenu showSwagger={props.isSwaggerEnabled} />}
             <AccountMenu isAuthenticated={props.isAuthenticated} />
           </Nav>

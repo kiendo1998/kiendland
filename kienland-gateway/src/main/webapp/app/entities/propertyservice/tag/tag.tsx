@@ -92,7 +92,7 @@ export const Tag = (props: ITagProps) => {
               </tr>
             </thead>
             <tbody>
-              {tagList.filter(tag=>tag.name.toLowerCase().includes(`${filter}`.toLowerCase())).map((tag, i) => (
+              {tagList.filter(tag=>tag.name.toLowerCase().includes(`${filter}`.trim().toLowerCase())).map((tag, i) => (
                 <tr key={`entity-${i}`}>
                   <td>
                     <Button tag={Link} to={`${match.url}/${tag.id}`} color="link" size="sm">

@@ -12,9 +12,13 @@ import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
 import { MDBInput, MDBCol } from "mdbreact";
-export interface IPropertyProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
+import {hasAnyAuthority} from "app/shared/auth/private-route";
+import {IHeaderProps} from "app/shared/layout/header/header";
+export interface IPropertyProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {
+}
 
 export const Property = (props: IPropertyProps) => {
+  const { propertyList, match, loading, totalItems,account } = props;
   const [filter, setFilter] = useState('');
   const changeFilter = evt => setFilter(evt.target.value);
   const [paginationState, setPaginationState] = useState(
@@ -66,7 +70,7 @@ export const Property = (props: IPropertyProps) => {
       activePage: currentPage,
     });
 
-  const { propertyList, match, loading, totalItems } = props;
+
   return (
     <div>
       <h2 id="property-heading">
@@ -137,7 +141,9 @@ export const Property = (props: IPropertyProps) => {
               </tr>
             </thead>
             <tbody>
-              {propertyList.filter(property=>property.title.toLowerCase().includes(`${filter}`.toLowerCase())).map((property, i) => (
+              {propertyList.filter(property=>property.title.toLowerCase().includes(`${filter}`.trim().toLowerCase())).
+              filter(property=>property.createBy===account.login||account.authorities.find(item=>item==="ROLE_ADMIN")).
+              map((property, i) => (
                 <tr key={`entity-${i}`}>
                   <td>
                     <Button tag={Link} to={`${match.url}/${property.id}`} color="link" size="sm">
@@ -213,7 +219,9 @@ export const Property = (props: IPropertyProps) => {
   );
 };
 
-const mapStateToProps = ({ property }: IRootState) => ({
+const mapStateToProps = ({ property,authentication }: IRootState) => ({
+  account: authentication.account,
+  isAuthenticated: authentication.isAuthenticated,
   propertyList: property.entities,
   loading: property.loading,
   totalItems: property.totalItems,

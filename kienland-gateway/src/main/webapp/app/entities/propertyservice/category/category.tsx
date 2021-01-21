@@ -96,7 +96,7 @@ export const Category = (props: ICategoryProps) => {
               </tr>
             </thead>
             <tbody>
-              {categoryList.filter(category=>category.name.toLowerCase().includes(`${filter}`.toLowerCase())).map((category, i) => (
+              {categoryList.filter(category=>category.name.toLowerCase().includes(`${filter}`.trim().toLowerCase())).map((category, i) => (
                 <tr key={`entity-${i}`}>
                   <td>
                     <Button tag={Link} to={`${match.url}/${category.id}`} color="link" size="sm">

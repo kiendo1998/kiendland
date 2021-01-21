@@ -22,11 +22,11 @@ export const PaypalCompletedPaymentsDetail = (props: IPaypalCompletedPaymentsDet
     <Row>
       <Col md="8">
         <h2>
-          PaypalCompletedPayments [<b>{paypalCompletedPaymentsEntity.id}</b>]
+          Thanh toán [<b>{paypalCompletedPaymentsEntity.id}</b>]
         </h2>
         <dl className="jh-entity-details">
           <dt>
-            <span id="date">Date</span>
+            <span id="date">Ngày thanh toán</span>
           </dt>
           <dd>
             {paypalCompletedPaymentsEntity.date ? (
@@ -34,15 +34,15 @@ export const PaypalCompletedPaymentsDetail = (props: IPaypalCompletedPaymentsDet
             ) : null}
           </dd>
           <dt>
-            <span id="idPayment">Id Payment</span>
+            <span id="idPayment">Mã thanh toán</span>
           </dt>
           <dd>{paypalCompletedPaymentsEntity.idPayment}</dd>
           <dt>
-            <span id="currency">Currency</span>
+            <span id="currency">Loại tiền tệ</span>
           </dt>
           <dd>{paypalCompletedPaymentsEntity.currency}</dd>
           <dt>
-            <span id="amount">Amount</span>
+            <span id="amount">Số tiền</span>
           </dt>
           <dd>{paypalCompletedPaymentsEntity.amount}</dd>
           <dt>
@@ -50,22 +50,22 @@ export const PaypalCompletedPaymentsDetail = (props: IPaypalCompletedPaymentsDet
           </dt>
           <dd>{paypalCompletedPaymentsEntity.email}</dd>
           <dt>
-            <span id="name">Name</span>
+            <span id="name">Tên</span>
           </dt>
           <dd>{paypalCompletedPaymentsEntity.name}</dd>
           <dt>
-            <span id="status">Status</span>
+            <span id="status">Trạng thái</span>
           </dt>
           <dd>{paypalCompletedPaymentsEntity.status}</dd>
           <dt>User</dt>
           <dd>{paypalCompletedPaymentsEntity.user ? paypalCompletedPaymentsEntity.user.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/paypal-completed-payments" replace color="info">
-          <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>
+          <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Trở về</span>
         </Button>
         &nbsp;
         <Button tag={Link} to={`/paypal-completed-payments/${paypalCompletedPaymentsEntity.id}/edit`} replace color="primary">
-          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Sửa</span>
         </Button>
       </Col>
     </Row>

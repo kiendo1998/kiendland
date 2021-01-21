@@ -76,7 +76,7 @@ export const Rate = (props: IRateProps) => {
           &nbsp; Tạo mới đánh giá
         </Link>
       </h2>
-      <span>Tìm kiếm</span> <Input placeholder="Nhập điểm" type="search" value={filter} onChange={changeFilter} name="search" id="search" />
+      <span>Tìm kiếm</span> <Input placeholder="Nhập điểm đánh giá" type="search" value={filter} onChange={changeFilter} name="search" id="search" />
       <div className="table-responsive">
         {rateList && rateList.length > 0 ? (
           <Table responsive>
@@ -95,7 +95,7 @@ export const Rate = (props: IRateProps) => {
               </tr>
             </thead>
             <tbody>
-              {rateList.filter(rate=>rate.ratePoint.toString().includes(`${filter}`)).map((rate, i) => (
+              {rateList.filter(rate=>rate.ratePoint.toString().includes(`${filter}`.trim())).map((rate, i) => (
                 <tr key={`entity-${i}`}>
                   <td>
                     <Button tag={Link} to={`${match.url}/${rate.id}`} color="link" size="sm">

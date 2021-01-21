@@ -52,6 +52,16 @@ export const News = props => (
     </NavLink>
   </NavItem>
 );
+export const Payment = props => (
+  <NavItem>
+    <NavLink tag={Link} to="/payment" className="d-flex align-items-center">
+      <FontAwesomeIcon icon="credit-card" />
+      <span>
+        Thanh toán
+      </span>
+    </NavLink>
+  </NavItem>
+);
 export const AboutUs = props => (
   <NavItem>
     <NavLink tag={Link} to="/about-us" className="d-flex align-items-center">

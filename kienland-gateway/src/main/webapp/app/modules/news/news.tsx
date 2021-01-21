@@ -3,7 +3,7 @@ import './news.scss';
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import {Link, RouteComponentProps} from 'react-router-dom';
-import {Button, Col, Row, Table} from 'reactstrap';
+import {Button, Col, Row,Label, Table} from 'reactstrap';
 import {
   ICrudGetAllAction,
   TextFormat,
@@ -26,6 +26,12 @@ export interface INewsProps extends StateProps, DispatchProps, RouteComponentPro
 }
 
 export const News = (props: INewsProps) => {
+  //filter
+  const [filter, setFilter] = useState('');
+  const changeFilter = evt => setFilter(evt.target.value);
+  //content filter
+  const [contentFilter, setContentFilter] = useState('');
+  const changeContentFilter = evt => setContentFilter(evt.target.value);
   const [paginationState, setPaginationState] = useState(
     overridePaginationStateWithQueryParams(getSortState(props.location, ITEMS_PER_PAGE), props.location.search)
   );
@@ -82,9 +88,29 @@ export const News = (props: INewsProps) => {
         <div className="row">
           <h4 className="section-heading">Tin tức</h4>
         </div>
+        <div className="row m-b-0">
+          <div className="col s12">
+            <form action="{{ route('search')}} " method="GET">
+              <div className="searchbar">
+                <div className="input-field col-sm-2 left">
+                  <label style={{color:'black'}}>Tìm kiếm tin tức</label>
+                </div>
+                <div className="input-field col-sm-5 left">
+                  <input placeholder="Nhập tiêu đề" type="text" name="project" value={filter} onChange={changeFilter} id="title" className="autocomplete custominputbox"
+                         autoComplete="off"/>
+                </div>
+                <div className="input-field col-sm-5 left">
+                  <input placeholder="Nhập nội dung" value={contentFilter} onChange={changeContentFilter} type="text" name="content" id="maxprice" className="custominputbox"/>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
         {newsList && newsList.length > 0 ? (
           <div className="row">
-            {newsList.map((news, i) => (
+            {newsList.
+            filter(news=>news.title.toLowerCase().includes(`${filter}`.trim().toLowerCase())).
+            filter(news=>news.content.toLowerCase().includes(`${contentFilter}`.trim().toLowerCase())).map((news, i) => (
               <div key={`entity-${i}`} className="col-sm-4">
                 <div className="card horizontal">
                   <div>
@@ -133,10 +159,6 @@ export const News = (props: INewsProps) => {
                         <i className="material-icons">comment</i>
                         <span>5</span>
                       </a>
-                      <a href="#" className="btn-flat disabled">
-                        <i className="material-icons">visibility</i>
-                        <span>5</span>
-                      </a>
                     </div>
                   </div>
                 </div>
@@ -145,35 +167,14 @@ export const News = (props: INewsProps) => {
             ))}
             <div className="col s12 m4">
 
-              <div className="card">
-                <div className="card-content">
-                  <h3 className="font-18 m-t-0 bold uppercase">Nhiều người đọc</h3>
-                  <ul className="collection">
-                    <li className="collection-item">
-                      <a href="{{ route('blog.show',$post->slug) }}" className="indigo-text text-darken-4">
-                      <span className="truncate tooltipped" data-position="bottom"
-                            data-tooltip="{{ $post->title }}">Dự án mới ở phú lễ</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+
 
               <div className="card">
                 <div className="card-content">
-                  <h3 className="font-18 m-t-0 bold uppercase">Danh mục</h3>
-                  <ul>
-                    <li className="category-bg-image"
-                        style={{'backgroundImage': `#`}}>
-
-                      <a href="{{ route('blog.categories',$category->slug) }}">
-
-                        <span className="left">dự án mới</span>
-
-                        <span className="right">5</span>
-                      </a>
-                    </li>
-                  </ul>
+                  <h3 className="font-18 m-t-0 bold uppercase">Chủ đề</h3>
+                  <a href="{{ route('blog.tags',$tag->slug) }}">
+                    <span className="btn-small indigo white-text m-b-5 card-no-shadow">category</span>
+                  </a>
                 </div>
               </div>
 

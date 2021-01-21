@@ -65,6 +65,12 @@ export const Home = (props: IHomeProp) => {
   //bed filter
   const [bedFilter, setBedFilter] = useState('');
   const changeBedFilter = evt => setBedFilter(evt.target.value);
+  //type filter
+  const [typeFilter, setTypeFilter] = useState('');
+  const changeTypeFilter = evt => setTypeFilter(evt.target.value);
+  //purpose filter
+  const [purposeFilter, setPurposeFilter] = useState('');
+  const changePurposeFilter = evt => setPurposeFilter(evt.target.value);
   //list item
   const [paginationState, setPaginationState] = useState(
     overridePaginationStateWithQueryParams(getSortState(props.location, ITEMS_PER_PAGE), props.location.search)
@@ -178,17 +184,18 @@ export const Home = (props: IHomeProp) => {
                            autoComplete="off"/>
                   </div>
                   <div className="input-field col-sm-3 left">
-                    <select name="type" className="browser-default">
-                      <option value="" disabled selected>Kiểu Bất Động Sản</option>
+                    <select name="type" className="browser-default" value={typeFilter} onChange={changeTypeFilter}>
+                      <option value="" selected>Kiểu Bất Động Sản</option>
                       <option value="Căn hộ">Căn hộ chung cư</option>
                       <option value="Nhà đất">Nhà đất</option>
+                      <option value="Đất nền">Đất nền</option>
                     </select>
                   </div>
                   <div className="input-field col-sm-2 left">
-                    <select name="purpose" className="browser-default">
-                      <option value="" disabled selected>Mục đích</option>
-                      <option value="Cho thuê">Cho Thuê</option>
+                    <select name="purpose" className="browser-default" value={purposeFilter} onChange={changePurposeFilter}>
+                      <option value="" selected>Mục đích</option>
                       <option value="Bán">Bán</option>
+                      <option value="Cho thuê">Cho thuê</option>
                     </select>
                   </div>
                   <div className="input-field col-sm-2 left">
@@ -211,7 +218,12 @@ export const Home = (props: IHomeProp) => {
           </div>
           {propertyList && propertyList.length > 0 ? (
             <div className="row">
-              {propertyList.filter(property=>property.project.toLowerCase().includes(`${filter}`.toLowerCase())).filter(property=>(property.price<parseFloat(priceFilter)||isNaN(parseFloat(priceFilter)))&&(isEqual(property.bedRoom,parseInt(bedFilter,10))||isNaN(parseInt(bedFilter,10)))).map((property, i) => (
+              {propertyList.
+              filter(property=>property.project.toLowerCase().includes(`${filter}`.trim().toLowerCase())).
+              filter(property=>(property.price<parseFloat(priceFilter)||isNaN(parseFloat(priceFilter)))&&(isEqual(property.bedRoom,parseInt(bedFilter,10))||isNaN(parseInt(bedFilter,10)))).
+              filter(property=>property.type.includes(`${typeFilter}`)).
+              filter(property=>property.purpose.includes(`${purposeFilter}`)).
+              map((property, i) => (
                 <div key={`entity-${i}`} className="col-sm-4">
                   <div className="card">
                     <div className="card-image">
