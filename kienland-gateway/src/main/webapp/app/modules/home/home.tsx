@@ -232,9 +232,8 @@ export const Home = (props: IHomeProp) => {
                         className="card-image-bg"
                         style={{ backgroundImage: `url(${'../../../content/images/' + property.titleImage})` }}
                       ></span>
-                      <a className="btn-floating halfway-fab waves-effect waves-light indigo" title="Featured">
-                        <i className="small material-icons">star</i>
-                      </a>
+                      {property.featured? <a className="btn-floating halfway-fab waves-effect waves-light indigo"><i
+                        className="small material-icons">star</i></a>:''}
                     </div>
                     <div className="card-content property-content">
                       {/*  noi dung property*/}

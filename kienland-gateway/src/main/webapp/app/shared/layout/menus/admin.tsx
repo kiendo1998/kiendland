@@ -17,7 +17,7 @@ const adminMenuItems = (
       Số liệu
     </MenuItem>
     <MenuItem icon="heart" to="/admin/health">
-      Sức Khỏe
+      Kiểm tra các dịch vụ
     </MenuItem>
     <MenuItem icon="list" to="/admin/configuration">
       Cấu hình

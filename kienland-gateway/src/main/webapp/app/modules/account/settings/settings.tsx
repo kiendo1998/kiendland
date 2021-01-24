@@ -38,11 +38,11 @@ export const SettingsPage = (props: IUserSettingsProps) => {
             <AvField
               className="form-control"
               name="firstName"
-              label="First Name"
+              label="Tên"
               id="firstName"
-              placeholder="Your first name"
+              placeholder="Tên của bạn"
               validate={{
-                required: { value: true, errorMessage: 'Your first name is required.' },
+                required: { value: true, errorMessage: 'Trường này là bắt buộc.' },
                 minLength: { value: 1, errorMessage: 'Your first name is required to be at least 1 character' },
                 maxLength: { value: 50, errorMessage: 'Your first name cannot be longer than 50 characters' },
               }}
@@ -52,11 +52,11 @@ export const SettingsPage = (props: IUserSettingsProps) => {
             <AvField
               className="form-control"
               name="lastName"
-              label="Last Name"
+              label="Họ"
               id="lastName"
-              placeholder="Your last name"
+              placeholder="Họ của bạn"
               validate={{
-                required: { value: true, errorMessage: 'Your last name is required.' },
+                required: { value: true, errorMessage: 'Trường này là bắt buộc.' },
                 minLength: { value: 1, errorMessage: 'Your last name is required to be at least 1 character' },
                 maxLength: { value: 50, errorMessage: 'Your last name cannot be longer than 50 characters' },
               }}
@@ -66,17 +66,17 @@ export const SettingsPage = (props: IUserSettingsProps) => {
             <AvField
               name="email"
               label="Email"
-              placeholder={'Your email'}
+              placeholder={'Email của bạn'}
               type="email"
               validate={{
-                required: { value: true, errorMessage: 'Your email is required.' },
+                required: { value: true, errorMessage: 'Trường này là bắt buộc.' },
                 minLength: { value: 5, errorMessage: 'Your email is required to be at least 5 characters.' },
                 maxLength: { value: 254, errorMessage: 'Your email cannot be longer than 50 characters.' },
               }}
               value={props.account.email}
             />
             <Button color="primary" type="submit">
-              Save
+              Lưu
             </Button>
           </AvForm>
         </Col>

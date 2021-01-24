@@ -39,18 +39,18 @@ class LoginModal extends React.Component<ILoginModalProps> {
                 <AvField
                   name="username"
                   label="Username"
-                  placeholder="Your username"
+                  placeholder="Tên đăng nhập"
                   required
-                  errorMessage="Username cannot be empty!"
+                  errorMessage="Username không thể trống!"
                   autoFocus
                 />
                 <AvField
                   name="password"
                   type="password"
-                  label="Password"
-                  placeholder="Your password"
+                  label="Mật khẩu"
+                  placeholder="Mật khẩu"
                   required
-                  errorMessage="Password cannot be empty!"
+                  errorMessage="Password không được để trống!"
                 />
                 <AvGroup check inline>
                   <Label className="form-check-label">

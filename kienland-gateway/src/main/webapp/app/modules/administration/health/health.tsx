@@ -38,7 +38,7 @@ export const HealthPage = (props: IHealthPageProps) => {
 
   return (
     <div>
-      <h2 id="health-page-heading">Kiểm tra sức khỏe</h2>
+      <h2 id="health-page-heading">Kiểm tra các service</h2>
       <p>
         <Button onClick={getSystemHealth} color={isFetching ? 'btn btn-danger' : 'btn btn-primary'} disabled={isFetching}>
           <FontAwesomeIcon icon="sync" />

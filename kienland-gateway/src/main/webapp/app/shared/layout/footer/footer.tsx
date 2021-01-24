@@ -28,23 +28,19 @@ function Footer() {
             <h5 className="white-text uppercase">Menu</h5>
             <ul>
               <li className="uppercase {{ Request::is('batdongsan*') ? 'underline' : '' }}">
-                <a href="{{ route('batdongsan') }}" className="grey-text text-lighten-3">Trang chủ</a>
+                <a href={`http://localhost:8080`} className="grey-text text-lighten-3">Trang chủ</a>
               </li>
 
               <li className="uppercase {{ Request::is('nhamoigioi*') ? 'underline' : '' }}">
-                <a href="{{ route('nhamoigioi') }}" className="grey-text text-lighten-3">Bất động sản</a>
+                <a href={`http://localhost:8080/show/property`} className="grey-text text-lighten-3">Bất động sản</a>
               </li>
 
               <li className="uppercase {{ Request::is('bosuutap*') ? 'underline' : '' }}">
-                <a href="{{ route('bosuutap') }}" className="grey-text text-lighten-3">Tin tức</a>
+                <a href={`http://localhost:8080/show/news`} className="grey-text text-lighten-3">Tin tức</a>
               </li>
 
               <li className="uppercase {{ Request::is('tintuc*') ? 'underline' : '' }}">
-                <a href="{{ route('tintuc') }}" className="grey-text text-lighten-3">Liên hệ</a>
-              </li>
-
-              <li className="uppercase {{ Request::is('lienhe') ? 'underline' : '' }}">
-                <a href="{{ route('lienhe') }}" className="grey-text text-lighten-3">Tài khoản</a>
+                <a href={`http://localhost:8080/about-us`} className="grey-text text-lighten-3">Liên hệ</a>
               </li>
             </ul>
           </div>
@@ -52,15 +48,15 @@ function Footer() {
             <h5 className="white-text uppercase">Thông tin liên hệ</h5>
             <ul>
               <li className="uppercase {{ Request::is('batdongsan*') ? 'underline' : '' }}">
-                <a href="{{ route('batdongsan') }}" className="grey-text text-lighten-3">Địa chỉ: Thạch Thất - Hà Nội</a>
+                <a href={`http://localhost:8080/about-us`} className="grey-text text-lighten-3">Địa chỉ: Thạch Thất - Hà Nội</a>
               </li>
 
               <li className="uppercase {{ Request::is('nhamoigioi*') ? 'underline' : '' }}">
-                <a href="{{ route('nhamoigioi') }}" className="grey-text text-lighten-3">SĐT: 0986579099</a>
+                <a href={`http://localhost:8080/about-us`} className="grey-text text-lighten-3">SĐT: 0986579099</a>
               </li>
 
               <li className="uppercase {{ Request::is('bosuutap*') ? 'underline' : '' }}">
-                <a href="{{ route('bosuutap') }}" className="grey-text text-lighten-3">Email: kiendo@kienland.com.vn</a>
+                <a href={`http://localhost:8080/about-us`} className="grey-text text-lighten-3">Email: kiendo@kienland.com.vn</a>
               </li>
             </ul>
           </div>

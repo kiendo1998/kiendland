@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import {Link, RouteComponentProps} from 'react-router-dom';
 import {Button, Row, Col} from 'reactstrap';
@@ -18,6 +18,8 @@ export interface IPropertyDetailProps extends StateProps, DispatchProps, RouteCo
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 export const PropertyDetail = (props: IPropertyDetailProps) => {
+  const [rate, setRate] = useState(0);
+  const changeRate = evt => setRate(evt.target.value);
   const {propertyEntity, match} = props;
   useEffect(() => {
     props.getEntity(props.match.params.id);
@@ -70,11 +72,12 @@ export const PropertyDetail = (props: IPropertyDetailProps) => {
           <div className="address m-b-30">
             <div>
               <StarRatings
-                rating={2.403}
+                rating={rate}
                 starDimension="20px"
                 starSpacing="3px"
                 starRatedColor='yellow'
                 starHoverColor='yellow'
+                changeRating={changeRate}
               />
             </div>
           </div>

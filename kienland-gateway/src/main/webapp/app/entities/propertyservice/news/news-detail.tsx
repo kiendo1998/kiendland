@@ -71,10 +71,6 @@ export const NewsDetail = (props: INewsDetailProps) => {
                   </span>
                   ))
                   : null}
-                <a href="#" className="btn-flat disabled">
-                  <i className="material-icons">visibility</i>
-                  <span>5</span>
-                </a>
               </div>
 
             </div>

@@ -24,15 +24,15 @@ export class PasswordResetInit extends React.Component<IPasswordResetInitProps> 
       <div>
         <Row className="justify-content-center">
           <Col md="8">
-            <h1>Reset your password</h1>
+            <h1>Lấy lại mật khẩu</h1>
             <Alert color="warning">
-              <p>Enter the email address you used to register</p>
+              <p>Nhập email của bạn</p>
             </Alert>
             <AvForm onValidSubmit={this.handleValidSubmit}>
               <AvField
                 name="email"
                 label="Email"
-                placeholder={'Your email'}
+                placeholder={'email'}
                 type="email"
                 validate={{
                   required: { value: true, errorMessage: 'Your email is required.' },
@@ -41,7 +41,7 @@ export class PasswordResetInit extends React.Component<IPasswordResetInitProps> 
                 }}
               />
               <Button color="primary" type="submit">
-                Reset password
+                Đặt lại mật khẩu
               </Button>
             </AvForm>
           </Col>
