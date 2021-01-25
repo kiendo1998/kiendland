@@ -22,6 +22,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
+import {getEntities as getRate} from "app/entities/propertyservice/rate/rate.reducer";
 
 export interface IHomeProp extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
@@ -82,6 +83,9 @@ export const Home = (props: IHomeProp) => {
   const getAllNews = () => {
     props.getNews(paginationState.activePage - 1, paginationState.itemsPerPage, `${paginationState.sort},${paginationState.order}`);
   };
+  const getAllRate = () => {
+    props.getRate();
+  };
 
   const sortProperties = () => {
     getAllProperties();
@@ -97,10 +101,18 @@ export const Home = (props: IHomeProp) => {
       props.history.push(`${props.location.pathname}${endURL}`);
     }
   };
+  const sortRate = () => {
+    getAllRate();
+    const endURL = ``;
+    if (props.location.search !== endURL) {
+      props.history.push(`${props.location.pathname}${endURL}`);
+    }
+  };
 
   useEffect(() => {
     sortNews();
     sortProperties();
+    sortRate();
   }, [paginationState.activePage, paginationState.order, paginationState.sort]);
 
   useEffect(() => {
@@ -132,7 +144,7 @@ export const Home = (props: IHomeProp) => {
       activePage: currentPage,
     });
 
-  const { propertyList, newsList, match, loading, loadingNews, totalItems, totalItemsNews } = props;
+  const { propertyList, newsList, match, loading, loadingNews,rateList, totalItems, totalItemsNews } = props;
   return (
     <div>
       <div className="slide-container">
@@ -261,7 +273,7 @@ export const Home = (props: IHomeProp) => {
                         {property.price}đ
                         <div className="right">
                           <StarRatings
-                            rating={2.403}
+                            rating={rateList.filter(item=>item.property.id===property.id).reduce((ratepoint,rate)=>{return (ratepoint+=rate.ratePoint/rateList.filter(item=>item.property.id===property.id).length)},0)}
                             starDimension="20px"
                             starSpacing="3px"
                             starRatedColor='yellow'
@@ -455,18 +467,22 @@ export const Home = (props: IHomeProp) => {
 // });
 
 // type StateProps = ReturnType<typeof mapStateToProps>;
-const mapStateToProps = ({ news, property }: IRootState) => ({
+const mapStateToProps = ({ news, property,rate }: IRootState) => ({
   newsList: news.entities,
   loadingNews: news.loading,
   totalItemsNews: news.totalItems,
   propertyList: property.entities,
   loading: property.loading,
   totalItems: property.totalItems,
+  rateList: rate.entities,
+  loadingRate: rate.loading,
+  totalItemsRate: rate.totalItems,
 });
 
 const mapDispatchToProps = {
   getProperty,
   getNews,
+  getRate,
 };
 
 type StateProps = ReturnType<typeof mapStateToProps>;

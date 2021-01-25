@@ -165,53 +165,71 @@ export const News = (props: INewsProps) => {
 
               </div>
             ))}
-            <div className="col s12 m4">
+            {/*<div className="col s12 m4">*/}
 
 
 
-              <div className="card">
-                <div className="card-content">
-                  <h3 className="font-18 m-t-0 bold uppercase">Chủ đề</h3>
-                  <a href="{{ route('blog.tags',$tag->slug) }}">
-                    <span className="btn-small indigo white-text m-b-5 card-no-shadow">category</span>
-                  </a>
-                </div>
-              </div>
+            {/*  <div className="card">*/}
+            {/*    <div className="card-content">*/}
+            {/*      <h3 className="font-18 m-t-0 bold uppercase">Chủ đề</h3>*/}
+            {/*      <a href="{{ route('blog.tags',$tag->slug) }}">*/}
+            {/*        <span className="btn-small indigo white-text m-b-5 card-no-shadow">category</span>*/}
+            {/*      </a>*/}
+            {/*    </div>*/}
+            {/*  </div>*/}
 
-              <div className="card">
-                <div className="card-content">
-                  <h3 className="font-18 m-t-0 bold uppercase">Dòng thời gian</h3>
-                  <ul className="collection">
-                    <li className="collection-item">
+            {/*  <div className="card">*/}
+            {/*    <div className="card-content">*/}
+            {/*      <h3 className="font-18 m-t-0 bold uppercase">Dòng thời gian</h3>*/}
+            {/*      <ul className="collection">*/}
+            {/*        <li className="collection-item">*/}
 
-                      <a href="/blog/?month={{ $stats['month'] }}&year={{ $stats['year'] }}"
-                         className="indigo-text text-darken-4">
+            {/*          <a href="/blog/?month={{ $stats['month'] }}&year={{ $stats['year'] }}"*/}
+            {/*             className="indigo-text text-darken-4">*/}
 
-                        tháng 12/2020
+            {/*            tháng 12/2020*/}
 
-                        <span className="badge indigo darken-1 white-text">hello</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+            {/*            <span className="badge indigo darken-1 white-text">hello</span>*/}
+            {/*          </a>*/}
+            {/*        </li>*/}
+            {/*      </ul>*/}
+            {/*    </div>*/}
+            {/*  </div>*/}
 
-              <div className="card">
-                <div className="card-content">
-                  <h3 className="font-18 m-t-0 bold uppercase">Tag</h3>
-                  <a href="{{ route('blog.tags',$tag->slug) }}">
-                    <span className="btn-small indigo white-text m-b-5 card-no-shadow">tagname</span>
-                  </a>
-                </div>
-              </div>
+            {/*  <div className="card">*/}
+            {/*    <div className="card-content">*/}
+            {/*      <h3 className="font-18 m-t-0 bold uppercase">Tag</h3>*/}
+            {/*      <a href="{{ route('blog.tags',$tag->slug) }}">*/}
+            {/*        <span className="btn-small indigo white-text m-b-5 card-no-shadow">tagname</span>*/}
+            {/*      </a>*/}
+            {/*    </div>*/}
+            {/*  </div>*/}
 
-            </div>
+            {/*</div>*/}
 
           </div>
         ) : (
           !loading && <div className="alert alert-warning">không có tin tức nào</div>
         )}
       </div>
+      {props.totalItems ? (
+        <div className={newsList && newsList.length > 0 ? '' : 'd-none'}>
+          <Row className="justify-content-center">
+            <JhiItemCount page={paginationState.activePage} total={totalItems} itemsPerPage={paginationState.itemsPerPage} />
+          </Row>
+          <Row className="justify-content-center">
+            <JhiPagination
+              activePage={paginationState.activePage}
+              onSelect={handlePagination}
+              maxButtons={5}
+              itemsPerPage={paginationState.itemsPerPage}
+              totalItems={props.totalItems}
+            />
+          </Row>
+        </div>
+      ) : (
+        ''
+      )}
     </section>
   );
 };

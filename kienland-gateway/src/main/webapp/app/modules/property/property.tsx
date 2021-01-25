@@ -1,14 +1,15 @@
 import './property.scss';
 
 import React, {useEffect, useState} from 'react';
-import {getSortState, Translate} from 'react-jhipster';
+import {getSortState, JhiItemCount, JhiPagination, Translate} from 'react-jhipster';
 import {connect} from 'react-redux';
 import {Row, Col} from 'reactstrap';
 import {RouteComponentProps} from "react-router";
 import {overridePaginationStateWithQueryParams} from "app/shared/util/entity-utils";
 import {ITEMS_PER_PAGE} from "app/shared/util/pagination.constants";
 import {IRootState} from "app/shared/reducers";
-import {getEntities} from "app/entities/propertyservice/property/property.reducer";
+import { getEntities as getProperty } from '../../entities/propertyservice/property/property.reducer';
+import { getEntities as getRate } from '../../entities/propertyservice/rate/rate.reducer';
 import StarRatings from 'react-star-ratings';
 import isEqual from 'lodash/isEqual';
 
@@ -36,20 +37,30 @@ export const Property = (props: IPropertyProps) => {
     overridePaginationStateWithQueryParams(getSortState(props.location, ITEMS_PER_PAGE), props.location.search)
   );
 
-  const getAllEntities = () => {
-    props.getEntities(paginationState.activePage - 1, paginationState.itemsPerPage, `${paginationState.sort},${paginationState.order}`);
+  const getAllProperty = () => {
+    props.getProperty(paginationState.activePage - 1, paginationState.itemsPerPage, `${paginationState.sort},${paginationState.order}`);
+  };
+  const getAllRate = () => {
+    props.getRate();
   };
 
-  const sortEntities = () => {
-    getAllEntities();
+  const sortProperty = () => {
+    getAllProperty();
     const endURL = `?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`;
     if (props.location.search !== endURL) {
       props.history.push(`${props.location.pathname}${endURL}`);
     }
   };
-
+  const sortRate = () => {
+    getAllRate();
+    // const endURL = ``;
+    // if (props.location.search !== endURL) {
+    //   props.history.push(`${props.location.pathname}${endURL}`);
+    // }
+  };
   useEffect(() => {
-    sortEntities();
+    sortProperty();
+    sortRate();
   }, [paginationState.activePage, paginationState.order, paginationState.sort]);
 
   useEffect(() => {
@@ -81,7 +92,8 @@ export const Property = (props: IPropertyProps) => {
       activePage: currentPage,
     });
 
-  const {propertyList, match, loading, totalItems} = props;
+  const {propertyList, match, loading, totalItems,rateList} = props;
+  // const sum= rateList.reduce((ratepoint,rate,index,rateList)=>{return ratepoint+=rate.ratePoint},0)
 
   return (
     <div>
@@ -183,8 +195,9 @@ export const Property = (props: IPropertyProps) => {
                         {property.price}đ
                         <div className="right">
                           <div className="right">
+
                             <StarRatings
-                              rating={2.403}
+                              rating={rateList.filter(item=>item.property.id===property.id).reduce((ratepoint,rate)=>{return (ratepoint+=rate.ratePoint/rateList.filter(item=>item.property.id===property.id).length)},0)}
                               starDimension="20px"
                               starSpacing="3px"
                               starRatedColor='yellow'
@@ -215,22 +228,44 @@ export const Property = (props: IPropertyProps) => {
           ) : (
             !loading && <div className="alert alert-warning">không có bất động sản nào</div>
           )}
-
+          {props.totalItems ? (
+            <div className={propertyList && propertyList.length > 0 ? '' : 'd-none'}>
+              <Row className="justify-content-center">
+                <JhiItemCount page={paginationState.activePage} total={totalItems} itemsPerPage={paginationState.itemsPerPage} />
+              </Row>
+              <Row className="justify-content-center">
+                <JhiPagination
+                  activePage={paginationState.activePage}
+                  onSelect={handlePagination}
+                  maxButtons={5}
+                  itemsPerPage={paginationState.itemsPerPage}
+                  totalItems={props.totalItems}
+                />
+              </Row>
+            </div>
+          ) : (
+            ''
+          )}
         </div>
       </section>
+
     </div>
 
   )
 }
 
-const mapStateToProps = ({property}: IRootState) => ({
+const mapStateToProps = ({property,rate}: IRootState) => ({
   propertyList: property.entities,
   loading: property.loading,
   totalItems: property.totalItems,
+  rateList: rate.entities,
+  loadingRate: rate.loading,
+  totalItemsRate: rate.totalItems,
 });
 
 const mapDispatchToProps = {
-  getEntities,
+  getProperty,
+  getRate,
 };
 
 type StateProps = ReturnType<typeof mapStateToProps>;
